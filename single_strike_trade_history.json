@@ -1,0 +1,10 @@
+{
+  "trading_session": {
+    "start_capital": 30000.0,
+    "end_capital": 30000.0,
+    "total_pnl": 0.0,
+    "total_trades": 0,
+    "date": "2026-06-05"
+  },
+  "trades": []
+}

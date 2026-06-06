@@ -1,0 +1,2210 @@
+{
+  "NIFTY26550CE": {
+    "instrument_token": "20483074",
+    "trading_symbol": "NIFTY26JUN26550CE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 26550.0,
+    "type": "CE"
+  },
+  "NIFTY26550PE": {
+    "instrument_token": "20483330",
+    "trading_symbol": "NIFTY26JUN26550PE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 26550.0,
+    "type": "PE"
+  },
+  "NIFTY26500CE": {
+    "instrument_token": "20482562",
+    "trading_symbol": "NIFTY26JUN26500CE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 26500.0,
+    "type": "CE"
+  },
+  "NIFTY26500PE": {
+    "instrument_token": "20482818",
+    "trading_symbol": "NIFTY26JUN26500PE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 26500.0,
+    "type": "PE"
+  },
+  "NIFTY26450CE": {
+    "instrument_token": "20469250",
+    "trading_symbol": "NIFTY26JUN26450CE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 26450.0,
+    "type": "CE"
+  },
+  "NIFTY26450PE": {
+    "instrument_token": "20482306",
+    "trading_symbol": "NIFTY26JUN26450PE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 26450.0,
+    "type": "PE"
+  },
+  "NIFTY26400CE": {
+    "instrument_token": "20463874",
+    "trading_symbol": "NIFTY26JUN26400CE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 26400.0,
+    "type": "CE"
+  },
+  "NIFTY26400PE": {
+    "instrument_token": "20468994",
+    "trading_symbol": "NIFTY26JUN26400PE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 26400.0,
+    "type": "PE"
+  },
+  "NIFTY26350CE": {
+    "instrument_token": "20446210",
+    "trading_symbol": "NIFTY26JUN26350CE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 26350.0,
+    "type": "CE"
+  },
+  "NIFTY26350PE": {
+    "instrument_token": "20463618",
+    "trading_symbol": "NIFTY26JUN26350PE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 26350.0,
+    "type": "PE"
+  },
+  "NIFTY26300CE": {
+    "instrument_token": "20445698",
+    "trading_symbol": "NIFTY26JUN26300CE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 26300.0,
+    "type": "CE"
+  },
+  "NIFTY26300PE": {
+    "instrument_token": "20445954",
+    "trading_symbol": "NIFTY26JUN26300PE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 26300.0,
+    "type": "PE"
+  },
+  "NIFTY26250CE": {
+    "instrument_token": "20444674",
+    "trading_symbol": "NIFTY26JUN26250CE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 26250.0,
+    "type": "CE"
+  },
+  "NIFTY26250PE": {
+    "instrument_token": "20445442",
+    "trading_symbol": "NIFTY26JUN26250PE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 26250.0,
+    "type": "PE"
+  },
+  "NIFTY26200CE": {
+    "instrument_token": "20444162",
+    "trading_symbol": "NIFTY26JUN26200CE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 26200.0,
+    "type": "CE"
+  },
+  "NIFTY26200PE": {
+    "instrument_token": "20444418",
+    "trading_symbol": "NIFTY26JUN26200PE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 26200.0,
+    "type": "PE"
+  },
+  "NIFTY26150CE": {
+    "instrument_token": "20443650",
+    "trading_symbol": "NIFTY26JUN26150CE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 26150.0,
+    "type": "CE"
+  },
+  "NIFTY26150PE": {
+    "instrument_token": "20443906",
+    "trading_symbol": "NIFTY26JUN26150PE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 26150.0,
+    "type": "PE"
+  },
+  "NIFTY21050CE": {
+    "instrument_token": "20339714",
+    "trading_symbol": "NIFTY26JUN21050CE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 21050.0,
+    "type": "CE"
+  },
+  "NIFTY21050PE": {
+    "instrument_token": "20339970",
+    "trading_symbol": "NIFTY26JUN21050PE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 21050.0,
+    "type": "PE"
+  },
+  "NIFTY20950CE": {
+    "instrument_token": "20339202",
+    "trading_symbol": "NIFTY26JUN20950CE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 20950.0,
+    "type": "CE"
+  },
+  "NIFTY20950PE": {
+    "instrument_token": "20339458",
+    "trading_symbol": "NIFTY26JUN20950PE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 20950.0,
+    "type": "PE"
+  },
+  "NIFTY20900CE": {
+    "instrument_token": "20338178",
+    "trading_symbol": "NIFTY26JUN20900CE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 20900.0,
+    "type": "CE"
+  },
+  "NIFTY20900PE": {
+    "instrument_token": "20338946",
+    "trading_symbol": "NIFTY26JUN20900PE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 20900.0,
+    "type": "PE"
+  },
+  "NIFTY20850CE": {
+    "instrument_token": "20337666",
+    "trading_symbol": "NIFTY26JUN20850CE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 20850.0,
+    "type": "CE"
+  },
+  "NIFTY20850PE": {
+    "instrument_token": "20337922",
+    "trading_symbol": "NIFTY26JUN20850PE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 20850.0,
+    "type": "PE"
+  },
+  "NIFTY20800CE": {
+    "instrument_token": "20332802",
+    "trading_symbol": "NIFTY26JUN20800CE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 20800.0,
+    "type": "CE"
+  },
+  "NIFTY20800PE": {
+    "instrument_token": "20337154",
+    "trading_symbol": "NIFTY26JUN20800PE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 20800.0,
+    "type": "PE"
+  },
+  "NIFTY20750CE": {
+    "instrument_token": "20330754",
+    "trading_symbol": "NIFTY26JUN20750CE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 20750.0,
+    "type": "CE"
+  },
+  "NIFTY20750PE": {
+    "instrument_token": "20332546",
+    "trading_symbol": "NIFTY26JUN20750PE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 20750.0,
+    "type": "PE"
+  },
+  "NIFTY20700CE": {
+    "instrument_token": "20329730",
+    "trading_symbol": "NIFTY26JUN20700CE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 20700.0,
+    "type": "CE"
+  },
+  "NIFTY20700PE": {
+    "instrument_token": "20329986",
+    "trading_symbol": "NIFTY26JUN20700PE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 20700.0,
+    "type": "PE"
+  },
+  "NIFTY20650CE": {
+    "instrument_token": "20327938",
+    "trading_symbol": "NIFTY26JUN20650CE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 20650.0,
+    "type": "CE"
+  },
+  "NIFTY20650PE": {
+    "instrument_token": "20328194",
+    "trading_symbol": "NIFTY26JUN20650PE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 20650.0,
+    "type": "PE"
+  },
+  "NIFTY20600CE": {
+    "instrument_token": "20327426",
+    "trading_symbol": "NIFTY26JUN20600CE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 20600.0,
+    "type": "CE"
+  },
+  "NIFTY20600PE": {
+    "instrument_token": "20327682",
+    "trading_symbol": "NIFTY26JUN20600PE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 20600.0,
+    "type": "PE"
+  },
+  "NIFTY20550CE": {
+    "instrument_token": "20325634",
+    "trading_symbol": "NIFTY26JUN20550CE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 20550.0,
+    "type": "CE"
+  },
+  "NIFTY20550PE": {
+    "instrument_token": "20325890",
+    "trading_symbol": "NIFTY26JUN20550PE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 20550.0,
+    "type": "PE"
+  },
+  "NIFTY20500CE": {
+    "instrument_token": "20323074",
+    "trading_symbol": "NIFTY26JUN20500CE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 20500.0,
+    "type": "CE"
+  },
+  "NIFTY20500PE": {
+    "instrument_token": "20323330",
+    "trading_symbol": "NIFTY26JUN20500PE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 20500.0,
+    "type": "PE"
+  },
+  "NIFTY20450CE": {
+    "instrument_token": "20322562",
+    "trading_symbol": "NIFTY26JUN20450CE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 20450.0,
+    "type": "CE"
+  },
+  "NIFTY20450PE": {
+    "instrument_token": "20322818",
+    "trading_symbol": "NIFTY26JUN20450PE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 20450.0,
+    "type": "PE"
+  },
+  "NIFTY20400CE": {
+    "instrument_token": "20322050",
+    "trading_symbol": "NIFTY26JUN20400CE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 20400.0,
+    "type": "CE"
+  },
+  "NIFTY20400PE": {
+    "instrument_token": "20322306",
+    "trading_symbol": "NIFTY26JUN20400PE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 20400.0,
+    "type": "PE"
+  },
+  "NIFTY20350CE": {
+    "instrument_token": "20321538",
+    "trading_symbol": "NIFTY26JUN20350CE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 20350.0,
+    "type": "CE"
+  },
+  "NIFTY20350PE": {
+    "instrument_token": "20321794",
+    "trading_symbol": "NIFTY26JUN20350PE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 20350.0,
+    "type": "PE"
+  },
+  "NIFTY20300CE": {
+    "instrument_token": "20321026",
+    "trading_symbol": "NIFTY26JUN20300CE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 20300.0,
+    "type": "CE"
+  },
+  "NIFTY20300PE": {
+    "instrument_token": "20321282",
+    "trading_symbol": "NIFTY26JUN20300PE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 20300.0,
+    "type": "PE"
+  },
+  "NIFTY20250CE": {
+    "instrument_token": "20320514",
+    "trading_symbol": "NIFTY26JUN20250CE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 20250.0,
+    "type": "CE"
+  },
+  "NIFTY20250PE": {
+    "instrument_token": "20320770",
+    "trading_symbol": "NIFTY26JUN20250PE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 20250.0,
+    "type": "PE"
+  },
+  "NIFTY20200CE": {
+    "instrument_token": "20320002",
+    "trading_symbol": "NIFTY26JUN20200CE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 20200.0,
+    "type": "CE"
+  },
+  "NIFTY20200PE": {
+    "instrument_token": "20320258",
+    "trading_symbol": "NIFTY26JUN20200PE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 20200.0,
+    "type": "PE"
+  },
+  "NIFTY20150CE": {
+    "instrument_token": "20319490",
+    "trading_symbol": "NIFTY26JUN20150CE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 20150.0,
+    "type": "CE"
+  },
+  "NIFTY20150PE": {
+    "instrument_token": "20319746",
+    "trading_symbol": "NIFTY26JUN20150PE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 20150.0,
+    "type": "PE"
+  },
+  "NIFTY20100CE": {
+    "instrument_token": "20291586",
+    "trading_symbol": "NIFTY26JUN20100CE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 20100.0,
+    "type": "CE"
+  },
+  "NIFTY20100PE": {
+    "instrument_token": "20291842",
+    "trading_symbol": "NIFTY26JUN20100PE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 20100.0,
+    "type": "PE"
+  },
+  "NIFTY12000CE": {
+    "instrument_token": "15007746",
+    "trading_symbol": "NIFTY26JUN12000CE",
+    "expiry": "2026-06-30",
+    "name": "NIFTY",
+    "strike": 12000.0,
+    "type": "CE"
+  },
+  "BANKNIFTY65000CE": {
+    "instrument_token": "19494914",
+    "trading_symbol": "BANKNIFTY26JUN65000CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 65000.0,
+    "type": "CE"
+  },
+  "BANKNIFTY65000PE": {
+    "instrument_token": "19495170",
+    "trading_symbol": "BANKNIFTY26JUN65000PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 65000.0,
+    "type": "PE"
+  },
+  "BANKNIFTY64000CE": {
+    "instrument_token": "19441410",
+    "trading_symbol": "BANKNIFTY26JUN64000CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 64000.0,
+    "type": "CE"
+  },
+  "BANKNIFTY64000PE": {
+    "instrument_token": "19441666",
+    "trading_symbol": "BANKNIFTY26JUN64000PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 64000.0,
+    "type": "PE"
+  },
+  "BANKNIFTY62900CE": {
+    "instrument_token": "19434242",
+    "trading_symbol": "BANKNIFTY26JUN62900CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 62900.0,
+    "type": "CE"
+  },
+  "BANKNIFTY62900PE": {
+    "instrument_token": "19435010",
+    "trading_symbol": "BANKNIFTY26JUN62900PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 62900.0,
+    "type": "PE"
+  },
+  "BANKNIFTY62800CE": {
+    "instrument_token": "19433730",
+    "trading_symbol": "BANKNIFTY26JUN62800CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 62800.0,
+    "type": "CE"
+  },
+  "BANKNIFTY62800PE": {
+    "instrument_token": "19433986",
+    "trading_symbol": "BANKNIFTY26JUN62800PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 62800.0,
+    "type": "PE"
+  },
+  "BANKNIFTY62700CE": {
+    "instrument_token": "19433218",
+    "trading_symbol": "BANKNIFTY26JUN62700CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 62700.0,
+    "type": "CE"
+  },
+  "BANKNIFTY62700PE": {
+    "instrument_token": "19433474",
+    "trading_symbol": "BANKNIFTY26JUN62700PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 62700.0,
+    "type": "PE"
+  },
+  "BANKNIFTY62600CE": {
+    "instrument_token": "19432706",
+    "trading_symbol": "BANKNIFTY26JUN62600CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 62600.0,
+    "type": "CE"
+  },
+  "BANKNIFTY62600PE": {
+    "instrument_token": "19432962",
+    "trading_symbol": "BANKNIFTY26JUN62600PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 62600.0,
+    "type": "PE"
+  },
+  "BANKNIFTY62400CE": {
+    "instrument_token": "19431682",
+    "trading_symbol": "BANKNIFTY26JUN62400CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 62400.0,
+    "type": "CE"
+  },
+  "BANKNIFTY62400PE": {
+    "instrument_token": "19431938",
+    "trading_symbol": "BANKNIFTY26JUN62400PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 62400.0,
+    "type": "PE"
+  },
+  "BANKNIFTY62300CE": {
+    "instrument_token": "19431170",
+    "trading_symbol": "BANKNIFTY26JUN62300CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 62300.0,
+    "type": "CE"
+  },
+  "BANKNIFTY62300PE": {
+    "instrument_token": "19431426",
+    "trading_symbol": "BANKNIFTY26JUN62300PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 62300.0,
+    "type": "PE"
+  },
+  "BANKNIFTY62200CE": {
+    "instrument_token": "19430658",
+    "trading_symbol": "BANKNIFTY26JUN62200CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 62200.0,
+    "type": "CE"
+  },
+  "BANKNIFTY62200PE": {
+    "instrument_token": "19430914",
+    "trading_symbol": "BANKNIFTY26JUN62200PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 62200.0,
+    "type": "PE"
+  },
+  "BANKNIFTY62100CE": {
+    "instrument_token": "19430146",
+    "trading_symbol": "BANKNIFTY26JUN62100CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 62100.0,
+    "type": "CE"
+  },
+  "BANKNIFTY62100PE": {
+    "instrument_token": "19430402",
+    "trading_symbol": "BANKNIFTY26JUN62100PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 62100.0,
+    "type": "PE"
+  },
+  "BANKNIFTY61900CE": {
+    "instrument_token": "19429122",
+    "trading_symbol": "BANKNIFTY26JUN61900CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 61900.0,
+    "type": "CE"
+  },
+  "BANKNIFTY61900PE": {
+    "instrument_token": "19429378",
+    "trading_symbol": "BANKNIFTY26JUN61900PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 61900.0,
+    "type": "PE"
+  },
+  "BANKNIFTY61800CE": {
+    "instrument_token": "19428610",
+    "trading_symbol": "BANKNIFTY26JUN61800CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 61800.0,
+    "type": "CE"
+  },
+  "BANKNIFTY61800PE": {
+    "instrument_token": "19428866",
+    "trading_symbol": "BANKNIFTY26JUN61800PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 61800.0,
+    "type": "PE"
+  },
+  "BANKNIFTY61700CE": {
+    "instrument_token": "19428098",
+    "trading_symbol": "BANKNIFTY26JUN61700CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 61700.0,
+    "type": "CE"
+  },
+  "BANKNIFTY61700PE": {
+    "instrument_token": "19428354",
+    "trading_symbol": "BANKNIFTY26JUN61700PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 61700.0,
+    "type": "PE"
+  },
+  "BANKNIFTY61600CE": {
+    "instrument_token": "19427586",
+    "trading_symbol": "BANKNIFTY26JUN61600CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 61600.0,
+    "type": "CE"
+  },
+  "BANKNIFTY61600PE": {
+    "instrument_token": "19427842",
+    "trading_symbol": "BANKNIFTY26JUN61600PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 61600.0,
+    "type": "PE"
+  },
+  "BANKNIFTY61400CE": {
+    "instrument_token": "19427074",
+    "trading_symbol": "BANKNIFTY26JUN61400CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 61400.0,
+    "type": "CE"
+  },
+  "BANKNIFTY61400PE": {
+    "instrument_token": "19427330",
+    "trading_symbol": "BANKNIFTY26JUN61400PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 61400.0,
+    "type": "PE"
+  },
+  "BANKNIFTY61300CE": {
+    "instrument_token": "19426562",
+    "trading_symbol": "BANKNIFTY26JUN61300CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 61300.0,
+    "type": "CE"
+  },
+  "BANKNIFTY61300PE": {
+    "instrument_token": "19426818",
+    "trading_symbol": "BANKNIFTY26JUN61300PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 61300.0,
+    "type": "PE"
+  },
+  "BANKNIFTY61200CE": {
+    "instrument_token": "19425282",
+    "trading_symbol": "BANKNIFTY26JUN61200CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 61200.0,
+    "type": "CE"
+  },
+  "BANKNIFTY61200PE": {
+    "instrument_token": "19425538",
+    "trading_symbol": "BANKNIFTY26JUN61200PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 61200.0,
+    "type": "PE"
+  },
+  "BANKNIFTY61100CE": {
+    "instrument_token": "19418370",
+    "trading_symbol": "BANKNIFTY26JUN61100CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 61100.0,
+    "type": "CE"
+  },
+  "BANKNIFTY61100PE": {
+    "instrument_token": "19418626",
+    "trading_symbol": "BANKNIFTY26JUN61100PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 61100.0,
+    "type": "PE"
+  },
+  "BANKNIFTY47400CE": {
+    "instrument_token": "19247362",
+    "trading_symbol": "BANKNIFTY26JUN47400CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 47400.0,
+    "type": "CE"
+  },
+  "BANKNIFTY47400PE": {
+    "instrument_token": "19247618",
+    "trading_symbol": "BANKNIFTY26JUN47400PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 47400.0,
+    "type": "PE"
+  },
+  "BANKNIFTY47300CE": {
+    "instrument_token": "19246850",
+    "trading_symbol": "BANKNIFTY26JUN47300CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 47300.0,
+    "type": "CE"
+  },
+  "BANKNIFTY47300PE": {
+    "instrument_token": "19247106",
+    "trading_symbol": "BANKNIFTY26JUN47300PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 47300.0,
+    "type": "PE"
+  },
+  "BANKNIFTY47200CE": {
+    "instrument_token": "19246338",
+    "trading_symbol": "BANKNIFTY26JUN47200CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 47200.0,
+    "type": "CE"
+  },
+  "BANKNIFTY47200PE": {
+    "instrument_token": "19246594",
+    "trading_symbol": "BANKNIFTY26JUN47200PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 47200.0,
+    "type": "PE"
+  },
+  "BANKNIFTY47100CE": {
+    "instrument_token": "19245570",
+    "trading_symbol": "BANKNIFTY26JUN47100CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 47100.0,
+    "type": "CE"
+  },
+  "BANKNIFTY47100PE": {
+    "instrument_token": "19245826",
+    "trading_symbol": "BANKNIFTY26JUN47100PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 47100.0,
+    "type": "PE"
+  },
+  "BANKNIFTY46900CE": {
+    "instrument_token": "19244034",
+    "trading_symbol": "BANKNIFTY26JUN46900CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 46900.0,
+    "type": "CE"
+  },
+  "BANKNIFTY46900PE": {
+    "instrument_token": "19244290",
+    "trading_symbol": "BANKNIFTY26JUN46900PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 46900.0,
+    "type": "PE"
+  },
+  "BANKNIFTY46800CE": {
+    "instrument_token": "19243522",
+    "trading_symbol": "BANKNIFTY26JUN46800CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 46800.0,
+    "type": "CE"
+  },
+  "BANKNIFTY46800PE": {
+    "instrument_token": "19243778",
+    "trading_symbol": "BANKNIFTY26JUN46800PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 46800.0,
+    "type": "PE"
+  },
+  "BANKNIFTY46700CE": {
+    "instrument_token": "19243010",
+    "trading_symbol": "BANKNIFTY26JUN46700CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 46700.0,
+    "type": "CE"
+  },
+  "BANKNIFTY46700PE": {
+    "instrument_token": "19243266",
+    "trading_symbol": "BANKNIFTY26JUN46700PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 46700.0,
+    "type": "PE"
+  },
+  "BANKNIFTY46600CE": {
+    "instrument_token": "19242498",
+    "trading_symbol": "BANKNIFTY26JUN46600CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 46600.0,
+    "type": "CE"
+  },
+  "BANKNIFTY46600PE": {
+    "instrument_token": "19242754",
+    "trading_symbol": "BANKNIFTY26JUN46600PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 46600.0,
+    "type": "PE"
+  },
+  "BANKNIFTY46400CE": {
+    "instrument_token": "19241474",
+    "trading_symbol": "BANKNIFTY26JUN46400CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 46400.0,
+    "type": "CE"
+  },
+  "BANKNIFTY46400PE": {
+    "instrument_token": "19242242",
+    "trading_symbol": "BANKNIFTY26JUN46400PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 46400.0,
+    "type": "PE"
+  },
+  "BANKNIFTY46300CE": {
+    "instrument_token": "19240962",
+    "trading_symbol": "BANKNIFTY26JUN46300CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 46300.0,
+    "type": "CE"
+  },
+  "BANKNIFTY46300PE": {
+    "instrument_token": "19241218",
+    "trading_symbol": "BANKNIFTY26JUN46300PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 46300.0,
+    "type": "PE"
+  },
+  "BANKNIFTY46200CE": {
+    "instrument_token": "19229186",
+    "trading_symbol": "BANKNIFTY26JUN46200CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 46200.0,
+    "type": "CE"
+  },
+  "BANKNIFTY46200PE": {
+    "instrument_token": "19240706",
+    "trading_symbol": "BANKNIFTY26JUN46200PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 46200.0,
+    "type": "PE"
+  },
+  "BANKNIFTY46100CE": {
+    "instrument_token": "19228162",
+    "trading_symbol": "BANKNIFTY26JUN46100CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 46100.0,
+    "type": "CE"
+  },
+  "BANKNIFTY46100PE": {
+    "instrument_token": "19228930",
+    "trading_symbol": "BANKNIFTY26JUN46100PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 46100.0,
+    "type": "PE"
+  },
+  "BANKNIFTY45900CE": {
+    "instrument_token": "19221250",
+    "trading_symbol": "BANKNIFTY26JUN45900CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 45900.0,
+    "type": "CE"
+  },
+  "BANKNIFTY45900PE": {
+    "instrument_token": "19227394",
+    "trading_symbol": "BANKNIFTY26JUN45900PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 45900.0,
+    "type": "PE"
+  },
+  "BANKNIFTY45800CE": {
+    "instrument_token": "19220738",
+    "trading_symbol": "BANKNIFTY26JUN45800CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 45800.0,
+    "type": "CE"
+  },
+  "BANKNIFTY45800PE": {
+    "instrument_token": "19220994",
+    "trading_symbol": "BANKNIFTY26JUN45800PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 45800.0,
+    "type": "PE"
+  },
+  "BANKNIFTY45700CE": {
+    "instrument_token": "19219202",
+    "trading_symbol": "BANKNIFTY26JUN45700CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 45700.0,
+    "type": "CE"
+  },
+  "BANKNIFTY45700PE": {
+    "instrument_token": "19220482",
+    "trading_symbol": "BANKNIFTY26JUN45700PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 45700.0,
+    "type": "PE"
+  },
+  "BANKNIFTY45600CE": {
+    "instrument_token": "19218690",
+    "trading_symbol": "BANKNIFTY26JUN45600CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 45600.0,
+    "type": "CE"
+  },
+  "BANKNIFTY45600PE": {
+    "instrument_token": "19218946",
+    "trading_symbol": "BANKNIFTY26JUN45600PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 45600.0,
+    "type": "PE"
+  },
+  "BANKNIFTY45500CE": {
+    "instrument_token": "19218178",
+    "trading_symbol": "BANKNIFTY26JUN45500CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 45500.0,
+    "type": "CE"
+  },
+  "BANKNIFTY45500PE": {
+    "instrument_token": "19218434",
+    "trading_symbol": "BANKNIFTY26JUN45500PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 45500.0,
+    "type": "PE"
+  },
+  "BANKNIFTY45400CE": {
+    "instrument_token": "19208194",
+    "trading_symbol": "BANKNIFTY26JUN45400CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 45400.0,
+    "type": "CE"
+  },
+  "BANKNIFTY45400PE": {
+    "instrument_token": "19217922",
+    "trading_symbol": "BANKNIFTY26JUN45400PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 45400.0,
+    "type": "PE"
+  },
+  "BANKNIFTY45300CE": {
+    "instrument_token": "19207170",
+    "trading_symbol": "BANKNIFTY26JUN45300CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 45300.0,
+    "type": "CE"
+  },
+  "BANKNIFTY45300PE": {
+    "instrument_token": "19207938",
+    "trading_symbol": "BANKNIFTY26JUN45300PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 45300.0,
+    "type": "PE"
+  },
+  "BANKNIFTY44500CE": {
+    "instrument_token": "19201026",
+    "trading_symbol": "BANKNIFTY26JUN44500CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 44500.0,
+    "type": "CE"
+  },
+  "BANKNIFTY44500PE": {
+    "instrument_token": "19201282",
+    "trading_symbol": "BANKNIFTY26JUN44500PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 44500.0,
+    "type": "PE"
+  },
+  "BANKNIFTY44000CE": {
+    "instrument_token": "19189250",
+    "trading_symbol": "BANKNIFTY26JUN44000CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 44000.0,
+    "type": "CE"
+  },
+  "BANKNIFTY44000PE": {
+    "instrument_token": "19189506",
+    "trading_symbol": "BANKNIFTY26JUN44000PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 44000.0,
+    "type": "PE"
+  },
+  "BANKNIFTY43000CE": {
+    "instrument_token": "19172354",
+    "trading_symbol": "BANKNIFTY26JUN43000CE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 43000.0,
+    "type": "CE"
+  },
+  "BANKNIFTY43000PE": {
+    "instrument_token": "19174146",
+    "trading_symbol": "BANKNIFTY26JUN43000PE",
+    "expiry": "2026-06-30",
+    "name": "BANKNIFTY",
+    "strike": 43000.0,
+    "type": "PE"
+  },
+  "HDFCBANK920PE": {
+    "instrument_token": "30412546",
+    "trading_symbol": "HDFCBANK26JUN920PE",
+    "expiry": "2026-06-30",
+    "name": "HDFCBANK",
+    "strike": 920.0,
+    "type": "PE"
+  },
+  "HDFCBANK910CE": {
+    "instrument_token": "30411778",
+    "trading_symbol": "HDFCBANK26JUN910CE",
+    "expiry": "2026-06-30",
+    "name": "HDFCBANK",
+    "strike": 910.0,
+    "type": "CE"
+  },
+  "HDFCBANK910PE": {
+    "instrument_token": "30412034",
+    "trading_symbol": "HDFCBANK26JUN910PE",
+    "expiry": "2026-06-30",
+    "name": "HDFCBANK",
+    "strike": 910.0,
+    "type": "PE"
+  },
+  "HDFCBANK890CE": {
+    "instrument_token": "30405890",
+    "trading_symbol": "HDFCBANK26JUN890CE",
+    "expiry": "2026-06-30",
+    "name": "HDFCBANK",
+    "strike": 890.0,
+    "type": "CE"
+  },
+  "HDFCBANK890PE": {
+    "instrument_token": "30406914",
+    "trading_symbol": "HDFCBANK26JUN890PE",
+    "expiry": "2026-06-30",
+    "name": "HDFCBANK",
+    "strike": 890.0,
+    "type": "PE"
+  },
+  "HDFCBANK855CE": {
+    "instrument_token": "24848130",
+    "trading_symbol": "HDFCBANK26JUN855CE",
+    "expiry": "2026-06-30",
+    "name": "HDFCBANK",
+    "strike": 855.0,
+    "type": "CE"
+  },
+  "HDFCBANK855PE": {
+    "instrument_token": "24848386",
+    "trading_symbol": "HDFCBANK26JUN855PE",
+    "expiry": "2026-06-30",
+    "name": "HDFCBANK",
+    "strike": 855.0,
+    "type": "PE"
+  },
+  "HDFCBANK845CE": {
+    "instrument_token": "24847618",
+    "trading_symbol": "HDFCBANK26JUN845CE",
+    "expiry": "2026-06-30",
+    "name": "HDFCBANK",
+    "strike": 845.0,
+    "type": "CE"
+  },
+  "HDFCBANK845PE": {
+    "instrument_token": "24847874",
+    "trading_symbol": "HDFCBANK26JUN845PE",
+    "expiry": "2026-06-30",
+    "name": "HDFCBANK",
+    "strike": 845.0,
+    "type": "PE"
+  },
+  "HDFCBANK835CE": {
+    "instrument_token": "24847106",
+    "trading_symbol": "HDFCBANK26JUN835CE",
+    "expiry": "2026-06-30",
+    "name": "HDFCBANK",
+    "strike": 835.0,
+    "type": "CE"
+  },
+  "HDFCBANK835PE": {
+    "instrument_token": "24847362",
+    "trading_symbol": "HDFCBANK26JUN835PE",
+    "expiry": "2026-06-30",
+    "name": "HDFCBANK",
+    "strike": 835.0,
+    "type": "PE"
+  },
+  "HDFCBANK825CE": {
+    "instrument_token": "24846594",
+    "trading_symbol": "HDFCBANK26JUN825CE",
+    "expiry": "2026-06-30",
+    "name": "HDFCBANK",
+    "strike": 825.0,
+    "type": "CE"
+  },
+  "HDFCBANK825PE": {
+    "instrument_token": "24846850",
+    "trading_symbol": "HDFCBANK26JUN825PE",
+    "expiry": "2026-06-30",
+    "name": "HDFCBANK",
+    "strike": 825.0,
+    "type": "PE"
+  },
+  "ICICIBANK1560CE": {
+    "instrument_token": "31670274",
+    "trading_symbol": "ICICIBANK26JUN1560CE",
+    "expiry": "2026-06-30",
+    "name": "ICICIBANK",
+    "strike": 1560.0,
+    "type": "CE"
+  },
+  "ICICIBANK1520CE": {
+    "instrument_token": "31668738",
+    "trading_symbol": "ICICIBANK26JUN1520CE",
+    "expiry": "2026-06-30",
+    "name": "ICICIBANK",
+    "strike": 1520.0,
+    "type": "CE"
+  },
+  "ICICIBANK1500CE": {
+    "instrument_token": "31668226",
+    "trading_symbol": "ICICIBANK26JUN1500CE",
+    "expiry": "2026-06-30",
+    "name": "ICICIBANK",
+    "strike": 1500.0,
+    "type": "CE"
+  },
+  "ICICIBANK1410CE": {
+    "instrument_token": "25828098",
+    "trading_symbol": "ICICIBANK26JUN1410CE",
+    "expiry": "2026-06-30",
+    "name": "ICICIBANK",
+    "strike": 1410.0,
+    "type": "CE"
+  },
+  "SBIN1260CE": {
+    "instrument_token": "43447810",
+    "trading_symbol": "SBIN26JUN1260CE",
+    "expiry": "2026-06-30",
+    "name": "SBIN",
+    "strike": 1260.0,
+    "type": "CE"
+  },
+  "SBIN1260PE": {
+    "instrument_token": "43448066",
+    "trading_symbol": "SBIN26JUN1260PE",
+    "expiry": "2026-06-30",
+    "name": "SBIN",
+    "strike": 1260.0,
+    "type": "PE"
+  },
+  "SBIN1240PE": {
+    "instrument_token": "43447042",
+    "trading_symbol": "SBIN26JUN1240PE",
+    "expiry": "2026-06-30",
+    "name": "SBIN",
+    "strike": 1240.0,
+    "type": "PE"
+  },
+  "SBIN1220CE": {
+    "instrument_token": "43446274",
+    "trading_symbol": "SBIN26JUN1220CE",
+    "expiry": "2026-06-30",
+    "name": "SBIN",
+    "strike": 1220.0,
+    "type": "CE"
+  },
+  "SBIN1220PE": {
+    "instrument_token": "43446530",
+    "trading_symbol": "SBIN26JUN1220PE",
+    "expiry": "2026-06-30",
+    "name": "SBIN",
+    "strike": 1220.0,
+    "type": "PE"
+  },
+  "SBIN1180CE": {
+    "instrument_token": "43445250",
+    "trading_symbol": "SBIN26JUN1180CE",
+    "expiry": "2026-06-30",
+    "name": "SBIN",
+    "strike": 1180.0,
+    "type": "CE"
+  },
+  "SBIN1180PE": {
+    "instrument_token": "43445506",
+    "trading_symbol": "SBIN26JUN1180PE",
+    "expiry": "2026-06-30",
+    "name": "SBIN",
+    "strike": 1180.0,
+    "type": "PE"
+  },
+  "SBIN1170CE": {
+    "instrument_token": "35550722",
+    "trading_symbol": "SBIN26JUN1170CE",
+    "expiry": "2026-06-30",
+    "name": "SBIN",
+    "strike": 1170.0,
+    "type": "CE"
+  },
+  "SBIN1160PE": {
+    "instrument_token": "43444994",
+    "trading_symbol": "SBIN26JUN1160PE",
+    "expiry": "2026-06-30",
+    "name": "SBIN",
+    "strike": 1160.0,
+    "type": "PE"
+  },
+  "SBIN1150CE": {
+    "instrument_token": "35550210",
+    "trading_symbol": "SBIN26JUN1150CE",
+    "expiry": "2026-06-30",
+    "name": "SBIN",
+    "strike": 1150.0,
+    "type": "CE"
+  },
+  "SBIN1150PE": {
+    "instrument_token": "35550466",
+    "trading_symbol": "SBIN26JUN1150PE",
+    "expiry": "2026-06-30",
+    "name": "SBIN",
+    "strike": 1150.0,
+    "type": "PE"
+  },
+  "SBIN1130CE": {
+    "instrument_token": "35549698",
+    "trading_symbol": "SBIN26JUN1130CE",
+    "expiry": "2026-06-30",
+    "name": "SBIN",
+    "strike": 1130.0,
+    "type": "CE"
+  },
+  "SBIN1130PE": {
+    "instrument_token": "35549954",
+    "trading_symbol": "SBIN26JUN1130PE",
+    "expiry": "2026-06-30",
+    "name": "SBIN",
+    "strike": 1130.0,
+    "type": "PE"
+  },
+  "SBIN1110CE": {
+    "instrument_token": "35549186",
+    "trading_symbol": "SBIN26JUN1110CE",
+    "expiry": "2026-06-30",
+    "name": "SBIN",
+    "strike": 1110.0,
+    "type": "CE"
+  },
+  "SBIN1110PE": {
+    "instrument_token": "35549442",
+    "trading_symbol": "SBIN26JUN1110PE",
+    "expiry": "2026-06-30",
+    "name": "SBIN",
+    "strike": 1110.0,
+    "type": "PE"
+  },
+  "SBIN1090CE": {
+    "instrument_token": "35535874",
+    "trading_symbol": "SBIN26JUN1090CE",
+    "expiry": "2026-06-30",
+    "name": "SBIN",
+    "strike": 1090.0,
+    "type": "CE"
+  },
+  "SBIN1090PE": {
+    "instrument_token": "35539970",
+    "trading_symbol": "SBIN26JUN1090PE",
+    "expiry": "2026-06-30",
+    "name": "SBIN",
+    "strike": 1090.0,
+    "type": "PE"
+  },
+  "SBIN830CE": {
+    "instrument_token": "35526146",
+    "trading_symbol": "SBIN26JUN830CE",
+    "expiry": "2026-06-30",
+    "name": "SBIN",
+    "strike": 830.0,
+    "type": "CE"
+  },
+  "SBIN830PE": {
+    "instrument_token": "35526402",
+    "trading_symbol": "SBIN26JUN830PE",
+    "expiry": "2026-06-30",
+    "name": "SBIN",
+    "strike": 830.0,
+    "type": "PE"
+  },
+  "SBIN780PE": {
+    "instrument_token": "43372546",
+    "trading_symbol": "SBIN26JUN780PE",
+    "expiry": "2026-06-30",
+    "name": "SBIN",
+    "strike": 780.0,
+    "type": "PE"
+  },
+  "AXISBANK1500CE": {
+    "instrument_token": "23143682",
+    "trading_symbol": "AXISBANK26JUN1500CE",
+    "expiry": "2026-06-30",
+    "name": "AXISBANK",
+    "strike": 1500.0,
+    "type": "CE"
+  },
+  "AXISBANK1430CE": {
+    "instrument_token": "18293250",
+    "trading_symbol": "AXISBANK26JUN1430CE",
+    "expiry": "2026-06-30",
+    "name": "AXISBANK",
+    "strike": 1430.0,
+    "type": "CE"
+  },
+  "KOTAKBANK422CE": {
+    "instrument_token": "28709378",
+    "trading_symbol": "KOTAKBANK26JUN422.5CE",
+    "expiry": "2026-06-30",
+    "name": "KOTAKBANK",
+    "strike": 422.5,
+    "type": "CE"
+  },
+  "KOTAKBANK342PE": {
+    "instrument_token": "28697858",
+    "trading_symbol": "KOTAKBANK26JUN342.5PE",
+    "expiry": "2026-06-30",
+    "name": "KOTAKBANK",
+    "strike": 342.5,
+    "type": "PE"
+  },
+  "KOTAKBANK337PE": {
+    "instrument_token": "28697346",
+    "trading_symbol": "KOTAKBANK26JUN337.5PE",
+    "expiry": "2026-06-30",
+    "name": "KOTAKBANK",
+    "strike": 337.5,
+    "type": "PE"
+  },
+  "KOTAKBANK332PE": {
+    "instrument_token": "28696834",
+    "trading_symbol": "KOTAKBANK26JUN332.5PE",
+    "expiry": "2026-06-30",
+    "name": "KOTAKBANK",
+    "strike": 332.5,
+    "type": "PE"
+  },
+  "KOTAKBANK317PE": {
+    "instrument_token": "28695298",
+    "trading_symbol": "KOTAKBANK26JUN317.5PE",
+    "expiry": "2026-06-30",
+    "name": "KOTAKBANK",
+    "strike": 317.5,
+    "type": "PE"
+  },
+  "KOTAKBANK310PE": {
+    "instrument_token": "34963202",
+    "trading_symbol": "KOTAKBANK26JUN310PE",
+    "expiry": "2026-06-30",
+    "name": "KOTAKBANK",
+    "strike": 310.0,
+    "type": "PE"
+  },
+  "INFY1520CE": {
+    "instrument_token": "32880898",
+    "trading_symbol": "INFY26JUN1520CE",
+    "expiry": "2026-06-30",
+    "name": "INFY",
+    "strike": 1520.0,
+    "type": "CE"
+  },
+  "INFY1030CE": {
+    "instrument_token": "26967810",
+    "trading_symbol": "INFY26JUN1030CE",
+    "expiry": "2026-06-30",
+    "name": "INFY",
+    "strike": 1030.0,
+    "type": "CE"
+  },
+  "INFY1030PE": {
+    "instrument_token": "26968066",
+    "trading_symbol": "INFY26JUN1030PE",
+    "expiry": "2026-06-30",
+    "name": "INFY",
+    "strike": 1030.0,
+    "type": "PE"
+  },
+  "INFY1010CE": {
+    "instrument_token": "26967298",
+    "trading_symbol": "INFY26JUN1010CE",
+    "expiry": "2026-06-30",
+    "name": "INFY",
+    "strike": 1010.0,
+    "type": "CE"
+  },
+  "INFY1010PE": {
+    "instrument_token": "26967554",
+    "trading_symbol": "INFY26JUN1010PE",
+    "expiry": "2026-06-30",
+    "name": "INFY",
+    "strike": 1010.0,
+    "type": "PE"
+  },
+  "INFY990PE": {
+    "instrument_token": "26966786",
+    "trading_symbol": "INFY26JUN990PE",
+    "expiry": "2026-06-30",
+    "name": "INFY",
+    "strike": 990.0,
+    "type": "PE"
+  },
+  "INFY940CE": {
+    "instrument_token": "32846850",
+    "trading_symbol": "INFY26JUN940CE",
+    "expiry": "2026-06-30",
+    "name": "INFY",
+    "strike": 940.0,
+    "type": "CE"
+  },
+  "INFY940PE": {
+    "instrument_token": "32847106",
+    "trading_symbol": "INFY26JUN940PE",
+    "expiry": "2026-06-30",
+    "name": "INFY",
+    "strike": 940.0,
+    "type": "PE"
+  },
+  "INFY920CE": {
+    "instrument_token": "32846338",
+    "trading_symbol": "INFY26JUN920CE",
+    "expiry": "2026-06-30",
+    "name": "INFY",
+    "strike": 920.0,
+    "type": "CE"
+  },
+  "INFY920PE": {
+    "instrument_token": "32846594",
+    "trading_symbol": "INFY26JUN920PE",
+    "expiry": "2026-06-30",
+    "name": "INFY",
+    "strike": 920.0,
+    "type": "PE"
+  },
+  "TCS3040CE": {
+    "instrument_token": "44860930",
+    "trading_symbol": "TCS26JUN3040CE",
+    "expiry": "2026-06-30",
+    "name": "TCS",
+    "strike": 3040.0,
+    "type": "CE"
+  },
+  "TCS2960CE": {
+    "instrument_token": "44859906",
+    "trading_symbol": "TCS26JUN2960CE",
+    "expiry": "2026-06-30",
+    "name": "TCS",
+    "strike": 2960.0,
+    "type": "CE"
+  },
+  "TCS2840CE": {
+    "instrument_token": "44858370",
+    "trading_symbol": "TCS26JUN2840CE",
+    "expiry": "2026-06-30",
+    "name": "TCS",
+    "strike": 2840.0,
+    "type": "CE"
+  },
+  "TCS2840PE": {
+    "instrument_token": "44858626",
+    "trading_symbol": "TCS26JUN2840PE",
+    "expiry": "2026-06-30",
+    "name": "TCS",
+    "strike": 2840.0,
+    "type": "PE"
+  },
+  "WIPRO177CE": {
+    "instrument_token": "38492418",
+    "trading_symbol": "WIPRO26JUN177.5CE",
+    "expiry": "2026-06-30",
+    "name": "WIPRO",
+    "strike": 177.5,
+    "type": "CE"
+  },
+  "WIPRO177PE": {
+    "instrument_token": "38493186",
+    "trading_symbol": "WIPRO26JUN177.5PE",
+    "expiry": "2026-06-30",
+    "name": "WIPRO",
+    "strike": 177.5,
+    "type": "PE"
+  },
+  "WIPRO172CE": {
+    "instrument_token": "38491906",
+    "trading_symbol": "WIPRO26JUN172.5CE",
+    "expiry": "2026-06-30",
+    "name": "WIPRO",
+    "strike": 172.5,
+    "type": "CE"
+  },
+  "WIPRO172PE": {
+    "instrument_token": "38492162",
+    "trading_symbol": "WIPRO26JUN172.5PE",
+    "expiry": "2026-06-30",
+    "name": "WIPRO",
+    "strike": 172.5,
+    "type": "PE"
+  },
+  "WIPRO167CE": {
+    "instrument_token": "38491394",
+    "trading_symbol": "WIPRO26JUN167.5CE",
+    "expiry": "2026-06-30",
+    "name": "WIPRO",
+    "strike": 167.5,
+    "type": "CE"
+  },
+  "WIPRO167PE": {
+    "instrument_token": "38491650",
+    "trading_symbol": "WIPRO26JUN167.5PE",
+    "expiry": "2026-06-30",
+    "name": "WIPRO",
+    "strike": 167.5,
+    "type": "PE"
+  },
+  "WIPRO165CE": {
+    "instrument_token": "45605378",
+    "trading_symbol": "WIPRO26JUN165CE",
+    "expiry": "2026-06-30",
+    "name": "WIPRO",
+    "strike": 165.0,
+    "type": "CE"
+  },
+  "WIPRO165PE": {
+    "instrument_token": "45605634",
+    "trading_symbol": "WIPRO26JUN165PE",
+    "expiry": "2026-06-30",
+    "name": "WIPRO",
+    "strike": 165.0,
+    "type": "PE"
+  },
+  "WIPRO160CE": {
+    "instrument_token": "45604866",
+    "trading_symbol": "WIPRO26JUN160CE",
+    "expiry": "2026-06-30",
+    "name": "WIPRO",
+    "strike": 160.0,
+    "type": "CE"
+  },
+  "HCLTECH1680CE": {
+    "instrument_token": "30155010",
+    "trading_symbol": "HCLTECH26JUN1680CE",
+    "expiry": "2026-06-30",
+    "name": "HCLTECH",
+    "strike": 1680.0,
+    "type": "CE"
+  },
+  "HCLTECH1500CE": {
+    "instrument_token": "30150402",
+    "trading_symbol": "HCLTECH26JUN1500CE",
+    "expiry": "2026-06-30",
+    "name": "HCLTECH",
+    "strike": 1500.0,
+    "type": "CE"
+  },
+  "ITC279CE": {
+    "instrument_token": "27613186",
+    "trading_symbol": "ITC26JUN279.5CE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 279.5,
+    "type": "CE"
+  },
+  "ITC279PE": {
+    "instrument_token": "27613442",
+    "trading_symbol": "ITC26JUN279.5PE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 279.5,
+    "type": "PE"
+  },
+  "ITC274CE": {
+    "instrument_token": "27612674",
+    "trading_symbol": "ITC26JUN274.5CE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 274.5,
+    "type": "CE"
+  },
+  "ITC274PE": {
+    "instrument_token": "27612930",
+    "trading_symbol": "ITC26JUN274.5PE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 274.5,
+    "type": "PE"
+  },
+  "ITC284CE": {
+    "instrument_token": "27613698",
+    "trading_symbol": "ITC26JUN284.5CE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 284.5,
+    "type": "CE"
+  },
+  "ITC284PE": {
+    "instrument_token": "27613954",
+    "trading_symbol": "ITC26JUN284.5PE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 284.5,
+    "type": "PE"
+  },
+  "ITC289PE": {
+    "instrument_token": "27614978",
+    "trading_symbol": "ITC26JUN289.5PE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 289.5,
+    "type": "PE"
+  },
+  "ITC352PE": {
+    "instrument_token": "33694210",
+    "trading_symbol": "ITC26JUN352PE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 352.0,
+    "type": "PE"
+  },
+  "ITC347CE": {
+    "instrument_token": "33691906",
+    "trading_symbol": "ITC26JUN347CE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 347.0,
+    "type": "CE"
+  },
+  "ITC347PE": {
+    "instrument_token": "33693698",
+    "trading_symbol": "ITC26JUN347PE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 347.0,
+    "type": "PE"
+  },
+  "ITC342PE": {
+    "instrument_token": "33691650",
+    "trading_symbol": "ITC26JUN342PE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 342.0,
+    "type": "PE"
+  },
+  "ITC339PE": {
+    "instrument_token": "27624450",
+    "trading_symbol": "ITC26JUN339.5PE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 339.5,
+    "type": "PE"
+  },
+  "ITC337CE": {
+    "instrument_token": "33686018",
+    "trading_symbol": "ITC26JUN337CE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 337.0,
+    "type": "CE"
+  },
+  "ITC337PE": {
+    "instrument_token": "33690626",
+    "trading_symbol": "ITC26JUN337PE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 337.0,
+    "type": "PE"
+  },
+  "ITC334CE": {
+    "instrument_token": "27623682",
+    "trading_symbol": "ITC26JUN334.5CE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 334.5,
+    "type": "CE"
+  },
+  "ITC334PE": {
+    "instrument_token": "27623938",
+    "trading_symbol": "ITC26JUN334.5PE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 334.5,
+    "type": "PE"
+  },
+  "ITC332CE": {
+    "instrument_token": "33685506",
+    "trading_symbol": "ITC26JUN332CE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 332.0,
+    "type": "CE"
+  },
+  "ITC332PE": {
+    "instrument_token": "33685762",
+    "trading_symbol": "ITC26JUN332PE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 332.0,
+    "type": "PE"
+  },
+  "ITC329CE": {
+    "instrument_token": "27623170",
+    "trading_symbol": "ITC26JUN329.5CE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 329.5,
+    "type": "CE"
+  },
+  "ITC327CE": {
+    "instrument_token": "33684994",
+    "trading_symbol": "ITC26JUN327CE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 327.0,
+    "type": "CE"
+  },
+  "ITC327PE": {
+    "instrument_token": "33685250",
+    "trading_symbol": "ITC26JUN327PE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 327.0,
+    "type": "PE"
+  },
+  "ITC324CE": {
+    "instrument_token": "27622658",
+    "trading_symbol": "ITC26JUN324.5CE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 324.5,
+    "type": "CE"
+  },
+  "ITC324PE": {
+    "instrument_token": "27622914",
+    "trading_symbol": "ITC26JUN324.5PE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 324.5,
+    "type": "PE"
+  },
+  "ITC319CE": {
+    "instrument_token": "27621122",
+    "trading_symbol": "ITC26JUN319.5CE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 319.5,
+    "type": "CE"
+  },
+  "ITC314CE": {
+    "instrument_token": "27617282",
+    "trading_symbol": "ITC26JUN314.5CE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 314.5,
+    "type": "CE"
+  },
+  "ITC314PE": {
+    "instrument_token": "27620866",
+    "trading_symbol": "ITC26JUN314.5PE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 314.5,
+    "type": "PE"
+  },
+  "ITC309CE": {
+    "instrument_token": "27616770",
+    "trading_symbol": "ITC26JUN309.5CE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 309.5,
+    "type": "CE"
+  },
+  "ITC309PE": {
+    "instrument_token": "27617026",
+    "trading_symbol": "ITC26JUN309.5PE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 309.5,
+    "type": "PE"
+  },
+  "ITC304CE": {
+    "instrument_token": "27616258",
+    "trading_symbol": "ITC26JUN304.5CE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 304.5,
+    "type": "CE"
+  },
+  "ITC304PE": {
+    "instrument_token": "27616514",
+    "trading_symbol": "ITC26JUN304.5PE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 304.5,
+    "type": "PE"
+  },
+  "ITC299CE": {
+    "instrument_token": "27615746",
+    "trading_symbol": "ITC26JUN299.5CE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 299.5,
+    "type": "CE"
+  },
+  "ITC299PE": {
+    "instrument_token": "27616002",
+    "trading_symbol": "ITC26JUN299.5PE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 299.5,
+    "type": "PE"
+  },
+  "ITC294CE": {
+    "instrument_token": "27615234",
+    "trading_symbol": "ITC26JUN294.5CE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 294.5,
+    "type": "CE"
+  },
+  "ITC294PE": {
+    "instrument_token": "27615490",
+    "trading_symbol": "ITC26JUN294.5PE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 294.5,
+    "type": "PE"
+  },
+  "ITC289CE": {
+    "instrument_token": "27614210",
+    "trading_symbol": "ITC26JUN289.5CE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 289.5,
+    "type": "CE"
+  },
+  "ITC269PE": {
+    "instrument_token": "27612418",
+    "trading_symbol": "ITC26JUN269.5PE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 269.5,
+    "type": "PE"
+  },
+  "ITC264CE": {
+    "instrument_token": "27609858",
+    "trading_symbol": "ITC26JUN264.5CE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 264.5,
+    "type": "CE"
+  },
+  "ITC264PE": {
+    "instrument_token": "27611138",
+    "trading_symbol": "ITC26JUN264.5PE",
+    "expiry": "2026-06-30",
+    "name": "ITC",
+    "strike": 264.5,
+    "type": "PE"
+  },
+  "HINDUNILVR2700CE": {
+    "instrument_token": "25584898",
+    "trading_symbol": "HINDUNILVR26JUN2700CE",
+    "expiry": "2026-06-30",
+    "name": "HINDUNILVR",
+    "strike": 2700.0,
+    "type": "CE"
+  },
+  "HINDUNILVR2680PE": {
+    "instrument_token": "9357058",
+    "trading_symbol": "HINDUNILVR26JUN2680PE",
+    "expiry": "2026-06-30",
+    "name": "HINDUNILVR",
+    "strike": 2680.0,
+    "type": "PE"
+  },
+  "HINDUNILVR2660CE": {
+    "instrument_token": "25583362",
+    "trading_symbol": "HINDUNILVR26JUN2660CE",
+    "expiry": "2026-06-30",
+    "name": "HINDUNILVR",
+    "strike": 2660.0,
+    "type": "CE"
+  },
+  "HINDUNILVR2660PE": {
+    "instrument_token": "25584130",
+    "trading_symbol": "HINDUNILVR26JUN2660PE",
+    "expiry": "2026-06-30",
+    "name": "HINDUNILVR",
+    "strike": 2660.0,
+    "type": "PE"
+  },
+  "HINDUNILVR2640CE": {
+    "instrument_token": "31235586",
+    "trading_symbol": "HINDUNILVR26JUN2640CE",
+    "expiry": "2026-06-30",
+    "name": "HINDUNILVR",
+    "strike": 2640.0,
+    "type": "CE"
+  },
+  "HINDUNILVR2640PE": {
+    "instrument_token": "31235842",
+    "trading_symbol": "HINDUNILVR26JUN2640PE",
+    "expiry": "2026-06-30",
+    "name": "HINDUNILVR",
+    "strike": 2640.0,
+    "type": "PE"
+  },
+  "HINDUNILVR2620CE": {
+    "instrument_token": "25582850",
+    "trading_symbol": "HINDUNILVR26JUN2620CE",
+    "expiry": "2026-06-30",
+    "name": "HINDUNILVR",
+    "strike": 2620.0,
+    "type": "CE"
+  },
+  "HINDUNILVR2620PE": {
+    "instrument_token": "25583106",
+    "trading_symbol": "HINDUNILVR26JUN2620PE",
+    "expiry": "2026-06-30",
+    "name": "HINDUNILVR",
+    "strike": 2620.0,
+    "type": "PE"
+  },
+  "HINDUNILVR2600CE": {
+    "instrument_token": "31235074",
+    "trading_symbol": "HINDUNILVR26JUN2600CE",
+    "expiry": "2026-06-30",
+    "name": "HINDUNILVR",
+    "strike": 2600.0,
+    "type": "CE"
+  },
+  "HINDUNILVR2600PE": {
+    "instrument_token": "31235330",
+    "trading_symbol": "HINDUNILVR26JUN2600PE",
+    "expiry": "2026-06-30",
+    "name": "HINDUNILVR",
+    "strike": 2600.0,
+    "type": "PE"
+  },
+  "HINDUNILVR2560PE": {
+    "instrument_token": "31234818",
+    "trading_symbol": "HINDUNILVR26JUN2560PE",
+    "expiry": "2026-06-30",
+    "name": "HINDUNILVR",
+    "strike": 2560.0,
+    "type": "PE"
+  },
+  "HINDUNILVR2500CE": {
+    "instrument_token": "25578242",
+    "trading_symbol": "HINDUNILVR26JUN2500CE",
+    "expiry": "2026-06-30",
+    "name": "HINDUNILVR",
+    "strike": 2500.0,
+    "type": "CE"
+  },
+  "HINDUNILVR2500PE": {
+    "instrument_token": "25578754",
+    "trading_symbol": "HINDUNILVR26JUN2500PE",
+    "expiry": "2026-06-30",
+    "name": "HINDUNILVR",
+    "strike": 2500.0,
+    "type": "PE"
+  },
+  "HINDUNILVR2460CE": {
+    "instrument_token": "25577730",
+    "trading_symbol": "HINDUNILVR26JUN2460CE",
+    "expiry": "2026-06-30",
+    "name": "HINDUNILVR",
+    "strike": 2460.0,
+    "type": "CE"
+  },
+  "HINDUNILVR2460PE": {
+    "instrument_token": "25577986",
+    "trading_symbol": "HINDUNILVR26JUN2460PE",
+    "expiry": "2026-06-30",
+    "name": "HINDUNILVR",
+    "strike": 2460.0,
+    "type": "PE"
+  },
+  "ONGC340PE": {
+    "instrument_token": "40395522",
+    "trading_symbol": "ONGC26JUN340PE",
+    "expiry": "2026-06-30",
+    "name": "ONGC",
+    "strike": 340.0,
+    "type": "PE"
+  },
+  "ONGC335CE": {
+    "instrument_token": "40394754",
+    "trading_symbol": "ONGC26JUN335CE",
+    "expiry": "2026-06-30",
+    "name": "ONGC",
+    "strike": 335.0,
+    "type": "CE"
+  },
+  "ONGC335PE": {
+    "instrument_token": "40395010",
+    "trading_symbol": "ONGC26JUN335PE",
+    "expiry": "2026-06-30",
+    "name": "ONGC",
+    "strike": 335.0,
+    "type": "PE"
+  },
+  "ONGC332CE": {
+    "instrument_token": "32896258",
+    "trading_symbol": "ONGC26JUN332.5CE",
+    "expiry": "2026-06-30",
+    "name": "ONGC",
+    "strike": 332.5,
+    "type": "CE"
+  },
+  "ONGC330CE": {
+    "instrument_token": "40394242",
+    "trading_symbol": "ONGC26JUN330CE",
+    "expiry": "2026-06-30",
+    "name": "ONGC",
+    "strike": 330.0,
+    "type": "CE"
+  },
+  "ONGC330PE": {
+    "instrument_token": "40394498",
+    "trading_symbol": "ONGC26JUN330PE",
+    "expiry": "2026-06-30",
+    "name": "ONGC",
+    "strike": 330.0,
+    "type": "PE"
+  },
+  "ONGC327CE": {
+    "instrument_token": "32894210",
+    "trading_symbol": "ONGC26JUN327.5CE",
+    "expiry": "2026-06-30",
+    "name": "ONGC",
+    "strike": 327.5,
+    "type": "CE"
+  },
+  "ONGC325CE": {
+    "instrument_token": "40393730",
+    "trading_symbol": "ONGC26JUN325CE",
+    "expiry": "2026-06-30",
+    "name": "ONGC",
+    "strike": 325.0,
+    "type": "CE"
+  },
+  "ONGC325PE": {
+    "instrument_token": "40393986",
+    "trading_symbol": "ONGC26JUN325PE",
+    "expiry": "2026-06-30",
+    "name": "ONGC",
+    "strike": 325.0,
+    "type": "PE"
+  },
+  "ONGC322CE": {
+    "instrument_token": "32889858",
+    "trading_symbol": "ONGC26JUN322.5CE",
+    "expiry": "2026-06-30",
+    "name": "ONGC",
+    "strike": 322.5,
+    "type": "CE"
+  },
+  "ONGC320CE": {
+    "instrument_token": "40393218",
+    "trading_symbol": "ONGC26JUN320CE",
+    "expiry": "2026-06-30",
+    "name": "ONGC",
+    "strike": 320.0,
+    "type": "CE"
+  },
+  "ONGC320PE": {
+    "instrument_token": "40393474",
+    "trading_symbol": "ONGC26JUN320PE",
+    "expiry": "2026-06-30",
+    "name": "ONGC",
+    "strike": 320.0,
+    "type": "PE"
+  },
+  "ONGC317CE": {
+    "instrument_token": "32888066",
+    "trading_symbol": "ONGC26JUN317.5CE",
+    "expiry": "2026-06-30",
+    "name": "ONGC",
+    "strike": 317.5,
+    "type": "CE"
+  },
+  "ONGC312CE": {
+    "instrument_token": "32887042",
+    "trading_symbol": "ONGC26JUN312.5CE",
+    "expiry": "2026-06-30",
+    "name": "ONGC",
+    "strike": 312.5,
+    "type": "CE"
+  },
+  "ONGC307CE": {
+    "instrument_token": "32886530",
+    "trading_symbol": "ONGC26JUN307.5CE",
+    "expiry": "2026-06-30",
+    "name": "ONGC",
+    "strike": 307.5,
+    "type": "CE"
+  },
+  "ONGC307PE": {
+    "instrument_token": "32886786",
+    "trading_symbol": "ONGC26JUN307.5PE",
+    "expiry": "2026-06-30",
+    "name": "ONGC",
+    "strike": 307.5,
+    "type": "PE"
+  }
+}

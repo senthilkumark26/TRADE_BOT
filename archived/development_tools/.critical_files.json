@@ -1,0 +1,45 @@
+{
+  "config.json": {
+    "file_path": "config.json",
+    "protection_level": "HIGH",
+    "description": "Contains API keys and credentials",
+    "allowed_operations": [
+      "READ"
+    ]
+  },
+  ".env": {
+    "file_path": ".env",
+    "protection_level": "HIGH",
+    "description": "Environment variables with secrets",
+    "allowed_operations": [
+      "READ"
+    ]
+  },
+  "kite_client.py": {
+    "file_path": "kite_client.py",
+    "protection_level": "MEDIUM",
+    "description": "Core Kite integration module",
+    "allowed_operations": [
+      "READ",
+      "MODIFY"
+    ]
+  },
+  "expiry_manager.py": {
+    "file_path": "expiry_manager.py",
+    "protection_level": "MEDIUM",
+    "description": "Expiry management service",
+    "allowed_operations": [
+      "READ",
+      "MODIFY"
+    ]
+  },
+  "kite_service.py": {
+    "file_path": "kite_service.py",
+    "protection_level": "MEDIUM",
+    "description": "Kite service module",
+    "allowed_operations": [
+      "READ",
+      "MODIFY"
+    ]
+  }
+}

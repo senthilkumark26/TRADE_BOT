@@ -1,0 +1,229 @@
+{
+  "api_key": "YOUR_API_KEY_HERE",
+  "api_secret": "YOUR_API_SECRET_HERE",
+  "redirect_uri": "http://127.0.0.1:5000/",
+  "request_token": "YOUR_REQUEST_TOKEN_HERE",
+  "access_token": "YOUR_ACCESS_TOKEN_HERE",
+  "paper_trading": false,
+  "default_quantity": 1,
+  "quantity_override": {
+    "NIFTY": 1,
+    "BANKNIFTY": 1
+  },
+  "product_type": "I",
+  "default_segment": "NSE_EQ",
+  "trade_options_for_indices": true,
+  "auto_place_brackets": true,
+  "max_concurrent_trades": 5,
+  "llm_provider": "ollama",
+  "ollama": {
+    "enabled": true,
+    "base_url": "http://localhost:11434",
+    "default_model": "qwen2:7b",
+    "fallback_model": "llama3:8b",
+    "timeout": 120,
+    "temperature": 0.2,
+    "llm_cooldown": 15,
+    "llm_timeout": 30.0,
+    "trading_mode": "moderate",
+    "mode_settings": {
+      "conservative": {
+        "risk_tolerance": "low",
+        "confidence_threshold": 90,
+        "risk_reward_ratio": "1:5",
+        "position_size": "small"
+      },
+      "moderate": {
+        "risk_tolerance": "medium",
+        "confidence_threshold": 85,
+        "risk_reward_ratio": "1:3",
+        "position_size": "medium"
+      },
+      "aggressive": {
+        "risk_tolerance": "high",
+        "confidence_threshold": 75,
+        "risk_reward_ratio": "1:2",
+        "position_size": "large"
+      }
+    }
+  },
+  "openai": {
+    "enabled": true,
+    "api_key": "YOUR_OPENAI_API_KEY_HERE",
+    "default_model": "gpt-4o-mini",
+    "fallback_model": "gpt-3.5-turbo",
+    "timeout": 30,
+    "temperature": 0.2,
+    "llm_timeout": 15.0,
+    "trading_mode": "moderate"
+  },
+  "gemini": {
+    "enabled": true,
+    "api_key": "YOUR_GEMINI_API_KEY_HERE",
+    "default_model": "gemini-1.5-flash",
+    "fallback_model": "gemini-1.5-pro",
+    "timeout": 60,
+    "temperature": 0.2,
+    "llm_timeout": 15.0,
+    "trading_mode": "moderate"
+  },
+  "airllm": {
+    "enabled": false,
+    "model_path": "garage-bAInd/Platypus2-70B-instruct",
+    "compression": "4bit",
+    "max_length": 128,
+    "timeout": 120,
+    "temperature": 0.2,
+    "llm_timeout": 30.0,
+    "trading_mode": "moderate",
+    "fast_mode": true,
+    "layer_shards_saving_path": "D:\\airllm_models",
+    "hf_token": null
+  },
+  "instruments": {
+    "NIFTY": {
+      "lot_size": 65,
+      "tick_size": 0.1,
+      "exchange": "NFO",
+      "symbol": "NIFTY26JUNFUT",
+      "instrument_token": 15956226,
+      "expiry_type": "monthly",
+      "expiry_day": "Tuesday"
+    },
+    "BANKNIFTY": {
+      "lot_size": 30,
+      "tick_size": 0.2,
+      "exchange": "NFO",
+      "symbol": "BANKNIFTY26JUNFUT",
+      "instrument_token": 15955458,
+      "expiry_type": "monthly",
+      "expiry_day": "Tuesday"
+    },
+    "HDFCBANK": {
+      "lot_size": 550,
+      "tick_size": 0.05,
+      "exchange": "NFO",
+      "symbol": "HDFCBANK26JUNFUT",
+      "instrument_token": 16023810,
+      "expiry_type": "monthly",
+      "expiry_day": "Tuesday"
+    },
+    "ICICIBANK": {
+      "lot_size": 700,
+      "tick_size": 0.1,
+      "exchange": "NFO",
+      "symbol": "ICICIBANK26JUNFUT",
+      "instrument_token": 16026626,
+      "expiry_type": "monthly",
+      "expiry_day": "Tuesday"
+    },
+    "SBIN": {
+      "lot_size": 750,
+      "tick_size": 0.05,
+      "exchange": "NFO",
+      "symbol": "SBIN26JUNFUT",
+      "instrument_token": 16079874,
+      "expiry_type": "monthly",
+      "expiry_day": "Tuesday"
+    },
+    "AXISBANK": {
+      "lot_size": 625,
+      "tick_size": 0.1,
+      "exchange": "NFO",
+      "symbol": "AXISBANK26JUNFUT",
+      "instrument_token": 15967490,
+      "expiry_type": "monthly",
+      "expiry_day": "Tuesday"
+    },
+    "KOTAKBANK": {
+      "lot_size": 2000,
+      "tick_size": 0.05,
+      "exchange": "NFO",
+      "symbol": "KOTAKBANK26JUNFUT",
+      "instrument_token": 16040706,
+      "expiry_type": "monthly",
+      "expiry_day": "Tuesday"
+    },
+    "INFY": {
+      "lot_size": 400,
+      "tick_size": 0.1,
+      "exchange": "NFO",
+      "symbol": "INFY26JUNFUT",
+      "instrument_token": 16030722,
+      "expiry_type": "monthly",
+      "expiry_day": "Tuesday"
+    },
+    "TCS": {
+      "lot_size": 175,
+      "tick_size": 0.1,
+      "exchange": "NFO",
+      "symbol": "TCS26JUNFUT",
+      "instrument_token": 16089858,
+      "expiry_type": "monthly",
+      "expiry_day": "Tuesday"
+    },
+    "WIPRO": {
+      "lot_size": 3000,
+      "tick_size": 0.01,
+      "exchange": "NFO",
+      "symbol": "WIPRO26JUNFUT",
+      "instrument_token": 16095746,
+      "expiry_type": "monthly",
+      "expiry_day": "Tuesday"
+    },
+    "HCLTECH": {
+      "lot_size": 350,
+      "tick_size": 0.1,
+      "exchange": "NFO",
+      "symbol": "HCLTECH26JUNFUT",
+      "instrument_token": 16023298,
+      "expiry_type": "monthly",
+      "expiry_day": "Tuesday"
+    },
+    "ITC": {
+      "lot_size": 1600,
+      "tick_size": 0.05,
+      "exchange": "NFO",
+      "symbol": "ITC26JUNFUT",
+      "instrument_token": 16032002,
+      "expiry_type": "monthly",
+      "expiry_day": "Tuesday"
+    },
+    "HINDUNILVR": {
+      "lot_size": 300,
+      "tick_size": 0.1,
+      "exchange": "NFO",
+      "symbol": "HINDUNILVR26JUNFUT",
+      "instrument_token": 16025090,
+      "expiry_type": "monthly",
+      "expiry_day": "Tuesday"
+    },
+    "ONGC": {
+      "lot_size": 2250,
+      "tick_size": 0.05,
+      "exchange": "NFO",
+      "symbol": "ONGC26JUNFUT",
+      "instrument_token": 16060930,
+      "expiry_type": "monthly",
+      "expiry_day": "Tuesday"
+    },
+    "CRUDEOIL": {
+      "lot_size": 10,
+      "tick_size": 1.0,
+      "exchange": "MCX",
+      "symbol": "CRUDEOILM26JUNFUT",
+      "instrument_token": 127768583,
+      "expiry_type": "monthly",
+      "expiry_day": "Thursday"
+    },
+    "NATGAS": {
+      "lot_size": 1,
+      "tick_size": 0.1,
+      "exchange": "MCX",
+      "symbol": "NATURALGAS26JUNFUT",
+      "instrument_token": 129091847,
+      "expiry_type": "monthly",
+      "expiry_day": "Thursday"
+    }
+  }
+}

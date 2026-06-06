@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Analyzer Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .header h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .status-bar {
+            background: white;
+            border-radius: 10px;
+            padding: 15px 25px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #4CAF50;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .confidence-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            background: #f0f0f0;
+        }
+
+        .action-button {
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.85em;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .action-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .trades-container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .trades-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .trades-header h2 {
+            color: #333;
+            font-size: 1.8em;
+        }
+
+        .refresh-info {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .signals-container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .trades-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .trades-table th {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .trades-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .trades-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .trade-score {
+            font-weight: bold;
+            color: #4CAF50;
+        }
+
+        .direction-badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .direction-call {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .direction-put {
+            background: #f44336;
+            color: white;
+        }
+
+        .no-trades {
+            text-align: center;
+            padding: 50px;
+            color: #999;
+            font-size: 1.2em;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+        }
+
+        .pnl-loading {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+        }
+
+        .last-updated {
+            text-align: center;
+            margin-top: 20px;
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        .pnl-tracker-container {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .pnl-tracker-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .pnl-tracker-header h2 {
+            color: #667eea;
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+        .pnl-goal {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        .pnl-tracker-content {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .pnl-card {
+            flex: 1;
+            min-width: 200px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .pnl-card h3 {
+            color: #666;
+            margin: 0 0 10px 0;
+            font-size: 0.9em;
+        }
+
+        .pnl-value {
+            font-size: 2em;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .pnl-value.positive {
+            color: #4CAF50;
+        }
+
+        .pnl-value.negative {
+            color: #f44336;
+        }
+
+        .pnl-progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .pnl-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4CAF50 0%, #8BC34A 100%);
+            transition: width 0.5s ease;
+        }
+
+        .pnl-progress-fill.goal-reached {
+            background: linear-gradient(90deg, #FFD700 0%, #FFA500 100%);
+        }
+
+        .pnl-goal-reached {
+            animation: celebration 0.5s ease;
+        }
+
+        @keyframes celebration {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .quality-excellent {
+            background: #4CAF50;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+        }
+
+        .quality-good {
+            background: #2196F3;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+        }
+
+        .quality-fair {
+            background: #FF9800;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+        }
+
+        .pnl-positive {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .pnl-negative {
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        .status-active {
+            background: #2196F3;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+
+        .status-success {
+            background: #4CAF50;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+
+        .status-loss {
+            background: #f44336;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+
+        .status-unknown {
+            background: #9e9e9e;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 Market Analyzer Dashboard</h1>
+            <p>Real-time perfect trade identification and analysis</p>
+        </div>
+
+        <div class="status-bar">
+            <div class="status-item">
+                <div class="status-indicator"></div>
+                <span id="system-status">Market Analyzer Running</span>
+            </div>
+            <div class="status-item">
+                <span>Perfect Trades: <strong id="trades-count">0</strong></span>
+            </div>
+            <div class="status-item">
+                <span>Last Updated: <strong id="last-update">--</strong></span>
+            </div>
+        </div>
+
+        <!-- Daily P&L Tracker -->
+        <div class="pnl-tracker-container">
+            <div class="pnl-tracker-header">
+                <h2>💰 Daily Profit Tracker</h2>
+                <div class="pnl-goal">Target: ₹5,000</div>
+            </div>
+            <div class="pnl-tracker-content" id="pnl-content">
+                <div class="pnl-loading">
+                    <p>Loading P&L data...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="signals-container">
+            <div class="trades-header">
+                <h2>🎯 Live Institutional Scanner Signals</h2>
+                <div class="refresh-info">Auto-refresh every 10 seconds</div>
+            </div>
+
+            <div id="signals-content">
+                <div class="loading">
+                    <p>Loading scanner signals...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="trades-container">
+            <div class="trades-header">
+                <h2>🏆 Perfect Trades</h2>
+                <div class="refresh-info">Auto-refresh every 10 seconds</div>
+            </div>
+
+            <div id="trades-content">
+                <div class="loading">
+                    <p>Loading perfect trades...</p>
+                </div>
+            </div>
+
+            <div class="last-updated">
+                Last updated: <span id="timestamp">--</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Auto-refresh trades, signals, and P&L every 10 seconds
+        setInterval(loadTrades, 10000);
+        setInterval(loadSignals, 10000);
+        setInterval(loadPnL, 10000);
+        
+        // Initial load
+        loadTrades();
+        loadSignals();
+        loadPnL();
+
+        function loadTrades() {
+            fetch('/api/trades')
+                .then(response => response.json())
+                .then(data => {
+                    displayTrades(data.trades);
+                    updateStatus(data.count, data.timestamp);
+                })
+                .catch(error => {
+                    console.error('Error loading trades:', error);
+                    showError();
+                });
+        }
+
+        function displayTrades(trades) {
+            const container = document.getElementById('trades-content');
+            
+            if (!trades || trades.length === 0) {
+                container.innerHTML = `
+                    <div class="no-trades">
+                        <p>😔 No trades found at the moment</p>
+                        <p>Market analyzer is scanning for opportunities...</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Separate scanner trades from execution trades
+            const scannerTrades = trades.filter(t => t.source === 'scanner');
+            const executionTrades = trades.filter(t => t.source === 'execution');
+
+            let html = '';
+
+            // Show execution trades first (only active trades)
+            const activeTrades = executionTrades.filter(trade => trade.status === 'ACTIVE');
+            if (activeTrades.length > 0) {
+                html += `
+                    <div style="background: #e8f5e9; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+                        <h3 style="color: #2e7d32; margin-bottom: 10px;">🎯 LIVE ACTIVE TRADES (${activeTrades.length})</h3>
+                        <table class="trades-table" style="background: white;">
+                            <thead>
+                                <tr>
+                                    <th>Symbol</th>
+                                    <th>Option</th>
+                                    <th>Entry</th>
+                                    <th>Target</th>
+                                    <th>Current</th>
+                                    <th>P&L</th>
+                                    <th>Status</th>
+                                    <th>Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                `;
+
+                activeTrades.forEach((trade) => {
+                    const directionClass = trade.direction === 'CALL' ? 'direction-call' : 'direction-put';
+                    const pnlClass = trade.pnl >= 0 ? 'pnl-positive' : 'pnl-negative';
+                    const statusClass = trade.status === 'ACTIVE' ? 'status-active' :
+                                      trade.status === 'TP_HIT' ? 'status-success' :
+                                      trade.status === 'SL_HIT' ? 'status-loss' : 'status-unknown';
+
+                    html += `
+                        <tr>
+                            <td><strong>${trade.symbol}</strong></td>
+                            <td>
+                                <span class="direction-badge ${directionClass}">${trade.strike} ${trade.option_type}</span>
+                            </td>
+                            <td>₹${trade.entry_price.toFixed(2)}</td>
+                            <td style="color: #2e7d32; font-weight: bold;">₹${trade.target.toFixed(2)}</td>
+                            <td>₹${trade.current_price.toFixed(2)}</td>
+                            <td class="${pnlClass}">₹${trade.pnl.toFixed(2)}</td>
+                            <td><span class="${statusClass}">${trade.status}</span></td>
+                            <td style="font-size: 0.9em; color: #666;">${formatTime(trade.analysis_timestamp)}</td>
+                        </tr>
+                    `;
+                });
+
+                html += `
+                            </tbody>
+                        </table>
+                    </div>
+                `;
+            } else {
+                // Show message when no active trades
+                html += `
+                    <div style="background: #fff3e0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+                        <h3 style="color: #e65100; margin-bottom: 10px;">🎯 LIVE ACTIVE TRADES (0)</h3>
+                        <p style="color: #666;">No active trades at the moment. Waiting for new trade executions...</p>
+                    </div>
+                `;
+            }
+
+            // Show scanner trades
+            html += `
+                <div style="background: #e3f2fd; padding: 15px; border-radius: 10px;">
+                    <h3 style="color: #1565c0; margin-bottom: 10px;">🔍 SCANNER TRADES (Market Analysis)</h3>
+                    <table class="trades-table" style="background: white;">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Symbol</th>
+                                <th>Option</th>
+                                <th>Spot</th>
+                                <th>Quality</th>
+                                <th>Analysis</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            `;
+
+            if (scannerTrades.length === 0) {
+                html += `
+                    <tr>
+                        <td colspan="7" style="text-align: center; padding: 20px; color: #666;">
+                            No scanner trades available
+                        </td>
+                    </tr>
+                `;
+            } else {
+                scannerTrades.forEach((trade, index) => {
+                    const qualityClass = getQualityClass(trade.quality_score);
+                    const directionClass = trade.direction === 'CALL' ? 'direction-call' : 'direction-put';
+                    
+                    html += `
+                        <tr>
+                            <td><strong>#${index + 1}</strong></td>
+                            <td><strong>${trade.symbol}</strong></td>
+                            <td>
+                                <span class="direction-badge ${directionClass}">${trade.strike} ${trade.option_type}</span>
+                            </td>
+                            <td>₹${trade.spot.toFixed(2)}</td>
+                            <td>
+                                <span class="trade-score ${qualityClass}">${trade.quality_score.toFixed(1)}%</span>
+                            </td>
+                            <td style="max-width: 300px;">${trade.reason}</td>
+                            <td style="font-size: 0.9em; color: #666;">${formatTime(trade.analysis_timestamp)}</td>
+                        </tr>
+                    `;
+                });
+            }
+
+            html += `
+                        </tbody>
+                    </table>
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
+
+        function getQualityClass(score) {
+            if (score >= 85) return 'quality-excellent';
+            if (score >= 70) return 'quality-good';
+            return 'quality-fair';
+        }
+
+        function updateStatus(count, timestamp) {
+            document.getElementById('trades-count').textContent = count;
+            document.getElementById('last-update').textContent = formatTime(timestamp);
+            document.getElementById('timestamp').textContent = formatTime(timestamp);
+        }
+
+        function formatTime(timestamp) {
+            if (!timestamp) return '--';
+            const date = new Date(timestamp);
+            return date.toLocaleTimeString();
+        }
+
+        function showError() {
+            const container = document.getElementById('trades-content');
+            container.innerHTML = `
+                <div class="no-trades">
+                    <p>⚠️ Error loading trades</p>
+                    <p>Please check if Market Analyzer is running</p>
+                </div>
+            `;
+        }
+
+        function loadSignals() {
+            fetch('/api/signals')
+                .then(response => response.json())
+                .then(data => {
+                    displaySignals(data.signals);
+                })
+                .catch(error => {
+                    console.error('Error loading signals:', error);
+                });
+        }
+
+        function displaySignals(signals) {
+            const container = document.getElementById('signals-content');
+            
+            if (!signals || signals.length === 0) {
+                container.innerHTML = `
+                    <div class="no-trades">
+                        <p>😔 No scanner signals available yet</p>
+                        <p>Market analyzer is scanning for opportunities...</p>
+                    </div>
+                `;
+                return;
+            }
+
+            let html = `
+                <table class="trades-table">
+                    <thead>
+                        <tr>
+                            <th>Instrument</th>
+                            <th>Type</th>
+                            <th>Spot</th>
+                            <th>Est. Entry</th>
+                            <th>SL (12%)</th>
+                            <th>TP (60%)</th>
+                            <th>Confidence</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            signals.forEach(signal => {
+                const typeClass = signal.type === 'CALL' ? 'direction-call' : 'direction-put';
+                const typeEmoji = signal.type === 'CALL' ? '🟢' : '🔴';
+                
+                html += `
+                    <tr>
+                        <td><strong>${signal.instrument}</strong></td>
+                        <td>
+                            <span class="direction-badge ${typeClass}">${typeEmoji} ${signal.type}</span>
+                        </td>
+                        <td>₹${signal.spot.toFixed(2)}</td>
+                        <td>₹${signal.entry.toFixed(2)}</td>
+                        <td style="color: #ff6b6b;">₹${signal.sl.toFixed(2)}</td>
+                        <td style="color: #51cf66;">₹${signal.tp.toFixed(2)}</td>
+                        <td>
+                            <span class="confidence-badge">${signal.emoji} ${signal.confidence} (${signal.score}%)</span>
+                        </td>
+                        <td>
+                            <button class="action-button" onclick="alert('Trade locked functionality coming soon!')">[ Lock Trade ]</button>
+                        </td>
+                    </tr>
+                `;
+            });
+
+            html += `
+                    </tbody>
+                </table>
+            `;
+
+            container.innerHTML = html;
+        }
+        
+        function loadPnL() {
+            fetch('/api/daily-pnl')
+                .then(response => response.json())
+                .then(data => {
+                    displayPnL(data);
+                })
+                .catch(error => {
+                    console.error('Error loading P&L:', error);
+                });
+        }
+        
+        function displayPnL(data) {
+            const pnlContent = document.getElementById('pnl-content');
+            
+            const totalPnlClass = data.total_pnl >= 0 ? 'positive' : 'negative';
+            const goalReachedClass = data.goal_reached ? 'goal-reached' : '';
+            const progressFillClass = data.goal_reached ? 'goal-reached' : '';
+            
+            let html = `
+                <div class="pnl-card">
+                    <h3>Realized P&L</h3>
+                    <div class="pnl-value ${totalPnlClass}">₹${data.realized_pnl.toFixed(2)}</div>
+                </div>
+                <div class="pnl-card">
+                    <h3>Unrealized P&L</h3>
+                    <div class="pnl-value ${totalPnlClass}">₹${data.unrealized_pnl.toFixed(2)}</div>
+                </div>
+                <div class="pnl-card">
+                    <h3>Total P&L</h3>
+                    <div class="pnl-value ${totalPnlClass} ${goalReachedClass}">₹${data.total_pnl.toFixed(2)}</div>
+                    <div class="pnl-progress-bar">
+                        <div class="pnl-progress-fill ${progressFillClass}" style="width: ${data.goal_progress}%"></div>
+                    </div>
+                    <div style="font-size: 0.8em; color: #666; margin-top: 5px;">
+                        ${data.goal_progress.toFixed(1)}% of ₹${data.daily_profit_goal} target
+                    </div>
+                </div>
+                <div class="pnl-card">
+                    <h3>Active Positions</h3>
+                    <div class="pnl-value">${data.active_positions}</div>
+                </div>
+            `;
+            
+            if (data.goal_reached) {
+                html = `
+                    <div style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); padding: 20px; border-radius: 10px; text-align: center; margin-bottom: 20px;">
+                        <h2 style="color: white; margin: 0;">🎉 GOAL REACHED!</h2>
+                        <p style="color: white; margin: 5px 0 0 0;">Daily profit target of ₹5,000 achieved!</p>
+                    </div>
+                ` + html;
+            }
+            
+            pnlContent.innerHTML = html;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{
+  "created": [],
+  "deleted": [],
+  "modified": [],
+  "approved": [],
+  "rejected": [],
+  "create": [
+    {
+      "action_type": "create",
+      "file_path": "test_file.py",
+      "description": "Test file for code manager",
+      "requester": "test_user",
+      "status": "APPROVED",
+      "timestamp": "2026-06-04T15:04:55.339441",
+      "approver": "admin"
+    },
+    {
+      "action_type": "create",
+      "file_path": "test_file.py",
+      "description": "Test file for code manager",
+      "requester": "test_user",
+      "status": "APPROVED",
+      "timestamp": "2026-06-04T15:05:06.890487",
+      "approver": "admin"
+    }
+  ]
+}

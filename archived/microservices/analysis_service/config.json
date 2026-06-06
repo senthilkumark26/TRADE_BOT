@@ -1,0 +1,18 @@
+{
+  "service_name": "analysis_service",
+  "version": "1.0",
+  "port": 8002,
+  "host": "0.0.0.0",
+  "description": "Provides REST API for technical analysis",
+  "dependencies": [
+    "market_service"
+  ],
+  "market_service_url": "http://localhost:8001",
+  "endpoints": {
+    "health": "/health",
+    "analyze": "/api/analysis/<symbol>",
+    "trend": "/api/analysis/trend/<symbol>",
+    "simple": "/api/analysis/simple/<symbol>",
+    "multiple": "/api/analysis/multiple"
+  }
+}

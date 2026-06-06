@@ -1,0 +1,236 @@
+{
+  "expiry_manager": {
+    "service_name": "expiry_manager",
+    "service_file": "expiry_manager.py",
+    "description": "Expiry Auto-Switch Engine - Automatically selects correct trading expiry",
+    "version": "1.0",
+    "dependencies": [],
+    "registered_at": "2026-06-04T15:06:52.995020",
+    "status": "ACTIVE"
+  },
+  "kite_service": {
+    "service_name": "kite_service",
+    "service_file": "kite_service.py",
+    "description": "Kite Service - Centralized KiteConnect integration with rate limiting",
+    "version": "1.0",
+    "dependencies": [],
+    "registered_at": "2026-06-04T15:06:52.996067",
+    "status": "ACTIVE"
+  },
+  "code_manager": {
+    "service_name": "code_manager",
+    "service_file": "code_manager.py",
+    "description": "Code Manager - Code governance system with approval workflow",
+    "version": "1.0",
+    "dependencies": [],
+    "registered_at": "2026-06-04T15:06:52.996067",
+    "status": "ACTIVE"
+  },
+  "gemini_integration": {
+    "service_name": "gemini_integration",
+    "service_file": "gemini_integration.py",
+    "description": "Gemini LLM integration service for market analysis",
+    "version": "1.0",
+    "dependencies": [],
+    "registered_at": "2026-06-04T15:11:12.186541",
+    "status": "ACTIVE"
+  },
+  "ollama_integration": {
+    "service_name": "ollama_integration",
+    "service_file": "ollama_integration.py",
+    "description": "Ollama LLM integration service for local AI models",
+    "version": "1.0",
+    "dependencies": [],
+    "registered_at": "2026-06-04T15:11:12.186541",
+    "status": "ACTIVE"
+  },
+  "openai_integration": {
+    "service_name": "openai_integration",
+    "service_file": "openai_integration.py",
+    "description": "OpenAI LLM integration service for GPT models",
+    "version": "1.0",
+    "dependencies": [],
+    "registered_at": "2026-06-04T15:11:12.186541",
+    "status": "ACTIVE"
+  },
+  "llm_market_analyzer": {
+    "service_name": "llm_market_analyzer",
+    "service_file": "llm_market_analyzer.py",
+    "description": "LLM-based market analysis service for trade evaluation",
+    "version": "1.0",
+    "dependencies": [
+      "gemini_integration"
+    ],
+    "registered_at": "2026-06-04T15:11:12.186541",
+    "status": "ACTIVE"
+  },
+  "llm_state_worker": {
+    "service_name": "llm_state_worker",
+    "service_file": "llm_state_worker.py",
+    "description": "LLM state management worker for decoupled LLM operations",
+    "version": "1.0",
+    "dependencies": [
+      "llm_market_analyzer"
+    ],
+    "registered_at": "2026-06-04T15:11:12.189649",
+    "status": "ACTIVE"
+  },
+  "llm_worker": {
+    "service_name": "llm_worker",
+    "service_file": "llm_worker.py",
+    "description": "LLM worker service for background LLM processing",
+    "version": "1.0",
+    "dependencies": [
+      "llm_market_analyzer"
+    ],
+    "registered_at": "2026-06-04T15:11:12.189649",
+    "status": "ACTIVE"
+  },
+  "market_analyzer": {
+    "service_name": "market_analyzer",
+    "service_file": "market_analyzer.py",
+    "description": "Market analysis service for technical analysis and signal generation",
+    "version": "1.0",
+    "dependencies": [
+      "kite_service"
+    ],
+    "registered_at": "2026-06-04T15:11:12.189649",
+    "status": "ACTIVE"
+  },
+  "market_signal_analyzer": {
+    "service_name": "market_signal_analyzer",
+    "service_file": "market_signal_analyzer.py",
+    "description": "Market signal analysis service for trade signal evaluation",
+    "version": "1.0",
+    "dependencies": [
+      "market_analyzer"
+    ],
+    "registered_at": "2026-06-04T15:11:12.189649",
+    "status": "ACTIVE"
+  },
+  "engine1_market_analyzer": {
+    "service_name": "engine1_market_analyzer",
+    "service_file": "engine1_market_analyzer.py",
+    "description": "Engine 1 market analyzer - Breakout detection and signal generation",
+    "version": "1.0",
+    "dependencies": [
+      "kite_service",
+      "expiry_manager"
+    ],
+    "registered_at": "2026-06-04T15:11:12.189649",
+    "status": "ACTIVE"
+  },
+  "engine2_llm_worker": {
+    "service_name": "engine2_llm_worker",
+    "service_file": "engine2_llm_worker.py",
+    "description": "Engine 2 LLM worker - LLM-based trade evaluation and scoring",
+    "version": "1.0",
+    "dependencies": [
+      "llm_market_analyzer",
+      "engine1_market_analyzer"
+    ],
+    "registered_at": "2026-06-04T15:11:12.189649",
+    "status": "ACTIVE"
+  },
+  "execution_risk_manager": {
+    "service_name": "execution_risk_manager",
+    "service_file": "execution_risk_manager.py",
+    "description": "Execution risk management service for trade risk assessment",
+    "version": "1.0",
+    "dependencies": [
+      "kite_service"
+    ],
+    "registered_at": "2026-06-04T15:11:12.189649",
+    "status": "ACTIVE"
+  },
+  "trade_queue_system": {
+    "service_name": "trade_queue_system",
+    "service_file": "trade_queue_system.py",
+    "description": "Trade queue system for event-driven trade management",
+    "version": "1.0",
+    "dependencies": [
+      "llm_market_analyzer"
+    ],
+    "registered_at": "2026-06-04T15:11:12.189649",
+    "status": "ACTIVE"
+  },
+  "trade_memory": {
+    "service_name": "trade_memory",
+    "service_file": "trade_memory.py",
+    "description": "Trade memory service for storing and retrieving trade history",
+    "version": "1.0",
+    "dependencies": [],
+    "registered_at": "2026-06-04T15:11:12.189649",
+    "status": "ACTIVE"
+  },
+  "trade_pipeline": {
+    "service_name": "trade_pipeline",
+    "service_file": "trade_pipeline.py",
+    "description": "Trade pipeline service for coordinating trade execution",
+    "version": "1.0",
+    "dependencies": [
+      "trade_queue_system"
+    ],
+    "registered_at": "2026-06-04T15:11:12.189649",
+    "status": "ACTIVE"
+  },
+  "demo_market_simulator": {
+    "service_name": "demo_market_simulator",
+    "service_file": "demo_market_simulator.py",
+    "description": "Demo market simulator for testing without live data",
+    "version": "1.0",
+    "dependencies": [],
+    "registered_at": "2026-06-04T15:11:12.189649",
+    "status": "ACTIVE"
+  },
+  "single_strike_trader": {
+    "service_name": "single_strike_trader",
+    "service_file": "single_strike_trader.py",
+    "description": "Single strike trading service for focused option trading",
+    "version": "1.0",
+    "dependencies": [
+      "kite_service",
+      "expiry_manager"
+    ],
+    "registered_at": "2026-06-04T15:11:12.189649",
+    "status": "ACTIVE"
+  },
+  "streamlit_single_strike_trader": {
+    "service_name": "streamlit_single_strike_trader",
+    "service_file": "streamlit_single_strike_trader.py",
+    "description": "Streamlit-based single strike trading UI service",
+    "version": "1.0",
+    "dependencies": [
+      "single_strike_trader"
+    ],
+    "registered_at": "2026-06-04T15:11:12.196648",
+    "status": "ACTIVE"
+  },
+  "web_interface": {
+    "service_name": "web_interface",
+    "service_file": "web_interface.py",
+    "description": "Web interface service for trading bot monitoring",
+    "version": "1.0",
+    "dependencies": [
+      "trading_bot"
+    ],
+    "registered_at": "2026-06-04T15:11:12.197236",
+    "status": "ACTIVE"
+  },
+  "trading_bot": {
+    "service_name": "trading_bot",
+    "service_file": "trading_bot.py",
+    "description": "Main trading bot service - Event-driven trading system",
+    "version": "1.0",
+    "dependencies": [
+      "kite_service",
+      "expiry_manager",
+      "llm_market_analyzer",
+      "engine1_market_analyzer",
+      "engine2_llm_worker",
+      "trade_queue_system"
+    ],
+    "registered_at": "2026-06-04T15:11:12.198354",
+    "status": "ACTIVE"
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "config.json": {
+    "file_path": "config.json",
+    "protection_level": "HIGH",
+    "description": "Contains API keys and credentials",
+    "allowed_operations": [
+      "READ"
+    ]
+  },
+  ".env": {
+    "file_path": ".env",
+    "protection_level": "HIGH",
+    "description": "Environment variables with secrets",
+    "allowed_operations": [
+      "READ"
+    ]
+  },
+  "kite_client.py": {
+    "file_path": "kite_client.py",
+    "protection_level": "MEDIUM",
+    "description": "Core Kite integration module",
+    "allowed_operations": [
+      "READ",
+      "MODIFY"
+    ]
+  },
+  "expiry_manager.py": {
+    "file_path": "expiry_manager.py",
+    "protection_level": "MEDIUM",
+    "description": "Expiry management service",
+    "allowed_operations": [
+      "READ",
+      "MODIFY"
+    ]
+  },
+  "kite_service.py": {
+    "file_path": "kite_service.py",
+    "protection_level": "MEDIUM",
+    "description": "Kite service module",
+    "allowed_operations": [
+      "READ",
+      "MODIFY"
+    ]
+  },
+  "services/optionstar_service/service.py": {
+    "file_path": "services/optionstar_service/service.py",
+    "protection_level": "CRITICAL",
+    "description": "OptionStar Institutional OI Analysis Service - Protected microservice for dealer positioning and liquidity wall detection",
+    "allowed_operations": [
+      "READ"
+    ],
+    "dependencies": [
+      "engine1_market_analyzer"
+    ],
+    "dependents": [
+      "single_strike_trader",
+      "trading_bot",
+      "market_analyzer"
+    ],
+    "service_name": "optionstar_service",
+    "version": "1.0.0"
+  },
+  "services/optionstar_service/__init__.py": {
+    "file_path": "services/optionstar_service/__init__.py",
+    "protection_level": "CRITICAL",
+    "description": "OptionStar Service Package Initialization",
+    "allowed_operations": [
+      "READ"
+    ],
+    "dependencies": [],
+    "dependents": [
+      "optionstar.py"
+    ]
+  },
+  "optionstar.py": {
+    "file_path": "optionstar.py",
+    "protection_level": "HIGH",
+    "description": "OptionStar Protected Wrapper - Maintains backward compatibility while delegating to protected microservice",
+    "allowed_operations": [
+      "READ",
+      "MODIFY"
+    ],
+    "dependencies": [
+      "services/optionstar_service"
+    ],
+    "dependents": [
+      "engine1_market_analyzer",
+      "single_strike_trader",
+      "market_analyzer",
+      "trading_bot"
+    ]
+  },
+  "services/risk_management_service/service.py": {
+    "file_path": "services/risk_management_service/service.py",
+    "protection_level": "CRITICAL",
+    "description": "Risk Management Service - Protected microservice for capital protection and risk control",
+    "allowed_operations": [
+      "READ"
+    ],
+    "dependencies": [],
+    "dependents": [
+      "single_strike_trader",
+      "trading_bot"
+    ],
+    "service_name": "risk_management_service",
+    "version": "1.0.0"
+  },
+  "services/risk_management_service/__init__.py": {
+    "file_path": "services/risk_management_service/__init__.py",
+    "protection_level": "CRITICAL",
+    "description": "Risk Management Service Package Initialization",
+    "allowed_operations": [
+      "READ"
+    ],
+    "dependencies": [],
+    "dependents": [
+      "risk_management.py"
+    ]
+  },
+  "risk_management.py": {
+    "file_path": "risk_management.py",
+    "protection_level": "HIGH",
+    "description": "Risk Management Protected Wrapper - Maintains backward compatibility while delegating to protected microservice",
+    "allowed_operations": [
+      "READ",
+      "MODIFY"
+    ],
+    "dependencies": [
+      "services/risk_management_service"
+    ],
+    "dependents": [
+      "single_strike_trader",
+      "trading_bot"
+    ]
+  }
+}

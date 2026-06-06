@@ -1,0 +1,22 @@
+{
+  "service_name": "execution_service",
+  "version": "1.0",
+  "port": 8003,
+  "host": "0.0.0.0",
+  "description": "Manages trade execution and order lifecycle",
+  "dependencies": [
+    "kite_service",
+    "analysis_service"
+  ],
+  "analysis_service_url": "http://localhost:8002",
+  "endpoints": {
+    "health": "/health",
+    "submit": "/api/trade/submit",
+    "execute": "/api/trade/execute/<trade_id>",
+    "cancel": "/api/trade/cancel/<trade_id>",
+    "status": "/api/trade/status/<trade_id>",
+    "exit": "/api/trade/exit/<trade_id>",
+    "list": "/api/trade/list",
+    "queue": "/api/trade/queue"
+  }
+}
