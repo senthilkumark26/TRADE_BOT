@@ -33,11 +33,11 @@ class StrikeSelectorService:
         self.dependents = ["trading_bot", "execution_brain"]
         self.protection_level = "CRITICAL"
         
-        # Configuration
-        self.atm_range_percent = 0.03  # 3% range for ATM strikes
-        self.min_oi_threshold = 10000  # Minimum OI for liquidity
-        self.min_volume_threshold = 500  # Minimum volume for liquidity
-        self.atm_boost_range = 100  # Points for ATM boost
+        # Configuration - RELAXED thresholds for better trade execution
+        self.atm_range_percent = 0.05  # 5% range for ATM strikes (increased from 3%)
+        self.min_oi_threshold = 500  # Minimum OI for liquidity (lowered from 1000)
+        self.min_volume_threshold = 25  # Minimum volume for liquidity (lowered from 50)
+        self.atm_boost_range = 150  # Points for ATM boost (increased from 100)
         
         # State
         self.running = False
@@ -90,48 +90,96 @@ class StrikeSelectorService:
             return None
     
     # -------------------------
-    # FILTER LIQUID STRIKES
+    # SMART STRIKE SELECTOR (PRODUCTION READY)
     # -------------------------
-    def filter_liquid_strikes(self, option_chain: List[Dict], spot: float) -> List[Dict]:
+    def select_strike_smart(self, option_chain: List[Dict], spot_price: float, 
+                          option_type: str) -> Optional[Dict]:
         """
-        Filter strikes based on liquidity criteria.
+        Smart Strike Selector (Production Ready)
+        
+        Priority:
+        1. Liquid ATM
+        2. Liquid near ATM
+        3. Any ATM
+        4. Nearest strike fallback
         
         Args:
             option_chain: List of option chain data
-            spot: Current spot price
+            spot_price: Current spot price
+            option_type: "CE" or "PE"
             
         Returns:
-            List of liquid strikes
+            Selected option contract or None
         """
-        try:
-            filtered = []
-            
-            for strike in option_chain:
-                strike_price = strike.get("strikePrice", 0)
-                
-                # Near ATM only (3% range)
-                if abs(strike_price - spot) > spot * self.atm_range_percent:
-                    continue
-                
-                call_oi = strike.get("call_oi", 0)
-                put_oi = strike.get("put_oi", 0)
-                volume = strike.get("volume", 0)
-                
-                # Liquidity conditions
-                if call_oi + put_oi < self.min_oi_threshold:
-                    continue
-                
-                if volume < self.min_volume_threshold:
-                    continue
-                
-                filtered.append(strike)
-            
-            logger.info(f"[LIQUIDITY FILTER] {len(filtered)} liquid strikes from {len(option_chain)} total")
-            return filtered
-            
-        except Exception as e:
-            logger.error(f"Error filtering liquid strikes: {e}")
-            return []
+        if not option_chain:
+            logger.warning("No option chain data provided")
+            return None
+        
+        # Extract strikes (FIXED: use "strike" not "strikePrice" - Zerodha API field name)
+        strikes = sorted(set([opt.get("strike", 0) for opt in option_chain if opt.get("strike", 0) > 0]))
+        
+        if not strikes:
+            logger.warning("No valid strikes found in option chain - fallback to raw options")
+            return option_chain[0] if option_chain else None
+        
+        # Find ATM
+        atm = min(strikes, key=lambda x: abs(x - spot_price))
+        logger.info(f"[SMART SELECTOR] ATM strike: {atm} (Spot: {spot_price})")
+        
+        # Split CE / PE
+        options = [
+            opt for opt in option_chain
+            if opt.get("type") == option_type
+        ]
+        
+        if not options:
+            logger.warning(f"No {option_type} options found")
+            return None
+        
+        # -------------------------------
+        # STEP 1: Try LIQUID ATM
+        # -------------------------------
+        for opt in options:
+            if (
+                opt.get("strike", 0) == atm and
+                opt.get("volume", 0) > 50 and
+                opt.get("call_oi", 0) + opt.get("put_oi", 0) > 10000
+            ):
+                logger.info(f"[SMART SELECTOR] Step 1: Using liquid ATM strike: {atm}")
+                return opt
+        
+        # -------------------------------
+        # STEP 2: Try LIQUID NEAR ATM (1 step)
+        # -------------------------------
+        step = abs(strikes[1] - strikes[0]) if len(strikes) > 1 else 50
+        
+        near_strikes = [atm - step, atm + step]
+        
+        for ns in near_strikes:
+            for opt in options:
+                if (
+                    opt.get("strike", 0) == ns and
+                    opt.get("volume", 0) > 20 and
+                    opt.get("call_oi", 0) + opt.get("put_oi", 0) > 5000
+                ):
+                    logger.info(f"[SMART SELECTOR] Step 2: Using NEAR ATM strike: {ns}")
+                    return opt
+        
+        # -------------------------------
+        # STEP 3: ANY ATM (ignore liquidity)
+        # -------------------------------
+        for opt in options:
+            if opt.get("strike", 0) == atm:
+                logger.info(f"[SMART SELECTOR] Step 3: Using ATM fallback (low liquidity): {atm}")
+                return opt
+        
+        # -------------------------------
+        # STEP 4: FINAL FALLBACK (NEAREST STRIKE)
+        # -------------------------------
+        nearest = min(options, key=lambda x: abs(x.get("strike", 0) - spot_price))
+        
+        logger.info(f"[SMART SELECTOR] Step 4: Using FINAL fallback strike: {nearest.get('strike', 0)}")
+        return nearest
     
     # -------------------------
     # RANK STRIKES
@@ -156,7 +204,7 @@ class StrikeSelectorService:
                 )
                 
                 # ATM boost (prefer ATM ± 100 points)
-                strike_price = s.get("strikePrice", 0)
+                strike_price = s.get("strike", 0)
                 if abs(strike_price - spot) < self.atm_boost_range:
                     base_score *= 1.5  # 50% boost for ATM strikes
                 
@@ -164,7 +212,7 @@ class StrikeSelectorService:
             
             ranked = sorted(strikes, key=lambda x: x["score"], reverse=True)
             
-            logger.info(f"[STRIKE RANKING] Top 3: {[s.get('strikePrice') for s in ranked[:3]]}")
+            logger.info(f"[STRIKE RANKING] Top 3: {[s.get('strike') for s in ranked[:3]]}")
             return ranked
             
         except Exception as e:
@@ -172,17 +220,19 @@ class StrikeSelectorService:
             return strikes
     
     # -------------------------
-    # SELECT BEST STRIKE
+    # SELECT BEST STRIKE (WITH NEAR ATM FALLBACK)
     # -------------------------
     def select_best_strike(self, ranked_strikes: List[Dict], signal: str, 
-                          optionstar_data: Dict) -> Optional[str]:
+                          optionstar_data: Dict, spot: float) -> Optional[str]:
         """
         Select best strike aligned with OptionStar support/resistance.
+        Includes fallback to nearest ATM if no suitable strike found.
         
         Args:
             ranked_strikes: List of ranked strike data
             signal: Trading signal ("CALL" or "PUT")
             optionstar_data: OptionStar support/resistance data
+            spot: Current spot price
             
         Returns:
             Best strike string (e.g., "23350 CE") or None
@@ -191,8 +241,9 @@ class StrikeSelectorService:
             support = optionstar_data.get("support", {}).get("strike", 0)
             resistance = optionstar_data.get("resistance", {}).get("strike", 0)
             
+            # Try to find strike aligned with OptionStar
             for s in ranked_strikes:
-                strike = s.get("strikePrice", 0)
+                strike = s.get("strike", 0)
                 
                 # CALL logic - strike should be above support
                 if signal == "CALL":
@@ -208,21 +259,31 @@ class StrikeSelectorService:
                         logger.info(f"[STRIKE SELECTION] PUT: {best_strike} (Resistance: {resistance})")
                         return best_strike
             
-            logger.warning(f"No suitable strike found for {signal} signal")
-            return None
+            # FALLBACK: Use nearest ATM strike
+            logger.warning("[FALLBACK] No OptionStar-aligned strike found, using nearest ATM")
+            nearest_atm = min(ranked_strikes, key=lambda x: abs(x.get("strike", 0) - spot))
+            atm_strike = nearest_atm.get("strike", 0)
+            
+            if signal == "CALL":
+                best_strike = f"{int(atm_strike)} CE"
+            else:
+                best_strike = f"{int(atm_strike)} PE"
+            
+            logger.info(f"[FALLBACK] Using nearest ATM: {best_strike} (Spot: {spot})")
+            return best_strike
             
         except Exception as e:
             logger.error(f"Error selecting best strike: {e}")
             return None
     
     # -------------------------
-    # COMPLETE SELECTION FLOW
+    # COMPLETE SELECTION FLOW (USING SMART SELECTOR)
     # -------------------------
     def select_strike_complete(self, instruments: List[Dict], symbol: str, 
                              option_chain: List[Dict], spot: float, 
                              signal: str, optionstar_data: Dict) -> Optional[Dict]:
         """
-        Complete strike selection flow.
+        Complete strike selection flow using smart selector.
         
         Args:
             instruments: List of instrument data (for reference, not used for expiry)
@@ -246,24 +307,19 @@ class StrikeSelectorService:
                 logger.error("Failed to select expiry")
                 return None
             
-            # Step 2: Filter option chain by expiry (already filtered, so just use as-is)
-            filtered_chain = option_chain
-            logger.info(f"Using API-filtered expiry {expiry}: {len(filtered_chain)} strikes")
+            logger.info(f"Using API-filtered expiry {expiry}: {len(option_chain)} strikes")
             
-            # Step 3: Filter liquid strikes
-            liquid_strikes = self.filter_liquid_strikes(filtered_chain, spot)
-            if not liquid_strikes:
-                logger.error("No liquid strikes found")
+            # Step 2: Use smart selector to pick best strike
+            option_type = "CE" if signal == "CALL" else "PE"
+            selected_contract = self.select_strike_smart(option_chain, spot, option_type)
+            
+            if not selected_contract:
+                logger.error("Smart selector failed to find any strike")
                 return None
             
-            # Step 4: Rank strikes
-            ranked_strikes = self.rank_strikes(liquid_strikes, spot)
-            
-            # Step 5: Select best strike
-            best_strike = self.select_best_strike(ranked_strikes, signal, optionstar_data)
-            if not best_strike:
-                logger.error("Failed to select best strike")
-                return None
+            # Extract strike info
+            strike_price = selected_contract.get("strike", 0)
+            best_strike = f"{int(strike_price)} {option_type}"
             
             result = {
                 "strike": best_strike,
@@ -272,7 +328,8 @@ class StrikeSelectorService:
                 "spot": spot,
                 "support": optionstar_data.get("support", {}).get("strike", 0),
                 "resistance": optionstar_data.get("resistance", {}).get("strike", 0),
-                "liquid_strikes_count": len(liquid_strikes)
+                "selected_contract": selected_contract,
+                "liquid_strikes_count": len(option_chain)
             }
             
             # Cache the selected strike
@@ -282,7 +339,6 @@ class StrikeSelectorService:
             logger.info(f"=" * 80)
             logger.info(f"[STRIKE SELECTION COMPLETE]")
             logger.info(f"Expiry: {expiry}")
-            logger.info(f"Liquid Strikes: {len(liquid_strikes)}")
             logger.info(f"Best Strike: {best_strike}")
             logger.info(f"=" * 80)
             

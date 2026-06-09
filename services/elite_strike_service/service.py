@@ -66,7 +66,8 @@ class EliteStrikeService:
             Adjusted strike string
         """
         try:
-            strike_val = int(strike.split()[0])
+            # Handle both int and float strings (e.g., "23300" or "23300.0")
+            strike_val = int(float(strike.split()[0]))
             original_strike = strike_val
             
             # If price already moved, shift strike
@@ -184,13 +185,15 @@ class EliteStrikeService:
             
             if not preferred:
                 logger.warning("No preferred strikes available, using original")
-                best = int(strike.split()[0])
+                best = int(float(strike.split()[0]))
             else:
                 best = preferred[0]["strikePrice"]
                 logger.info(f"Gamma-preferred strike: {best}")
             
             # 2. Adjust strike if needed (price run adjustment)
-            final_strike = self.adjust_strike(signal, f"{best}", spot)
+            # Convert best to int to avoid float string issues
+            best_int = int(best) if isinstance(best, (int, float)) else int(float(best))
+            final_strike = self.adjust_strike(signal, f"{best_int}", spot)
             
             # 3. Dynamic lot sizing
             lot = self.dynamic_lot(score)
@@ -199,14 +202,14 @@ class EliteStrikeService:
                 "strike": final_strike,
                 "lot": lot,
                 "original_strike": strike,
-                "gamma_preferred": best,
-                "adjusted": final_strike != f"{best} {'CE' if signal == 'CALL' else 'PE'}"
+                "gamma_preferred": best_int,
+                "adjusted": final_strike != f"{best_int} {'CE' if signal == 'CALL' else 'PE'}"
             }
             
             logger.info(f"=" * 80)
             logger.info(f"[ELITE OPTIMIZATION COMPLETE]")
             logger.info(f"Original: {strike}")
-            logger.info(f"Gamma Preferred: {best}")
+            logger.info(f"Gamma Preferred: {best_int}")
             logger.info(f"Final Strike: {final_strike}")
             logger.info(f"Lot Size: {lot}")
             logger.info(f"=" * 80)

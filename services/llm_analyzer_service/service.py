@@ -6,8 +6,16 @@ Provides: Human sentiment analysis, market psychology, final trade decisions
 import logging
 from typing import Dict, Any, Optional
 from datetime import datetime
-from ollama_integration import OllamaIntegration
-from airllm_integration import AirLLMIntegration
+import sys
+import os
+
+# Add parent directory to path for imports
+parent_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+if parent_dir not in sys.path:
+    sys.path.append(parent_dir)
+
+from ai.ollama_integration import OllamaIntegration
+from ai.airllm_integration import AirLLMIntegration
 
 logger = logging.getLogger(__name__)
 
@@ -25,7 +33,7 @@ class LLMAnalyzerService:
         self,
         provider: str = "ollama",
         ollama_url: str = "http://localhost:11434",
-        model: str = "qwen2:7b",
+        model: str = "tinyllama:latest",
         mode: str = "moderate",
         fast_mode: bool = False,
         airllm_config: Optional[Dict[str, Any]] = None
@@ -126,7 +134,7 @@ class LLMAnalyzerService:
             response = self.llm.generate(
                 prompt=prompt,
                 model=self.model,
-                timeout=10.0  # 10-second timeout for LLM response
+                timeout=5.0  # 5-second timeout for TinyLlama
             )
             
             if response:

@@ -1,0 +1,145 @@
+{
+  "system_metadata": {
+    "engine_id": "live_trading",
+    "automated_mode": true,
+    "timeframe": "15m",
+    "ema_filter": "9_21_crossover"
+  },
+  "capital_manager": {
+    "starting_virtual_capital": 0.0,
+    "current_active_balance": 0.0,
+    "investment_vault_balance": 0.0,
+    "consecutive_wins": 0,
+    "consecutive_losses": 0,
+    "current_session_lots": 1,
+    "lot_sizes": {
+      "NIFTY": {
+        "lot_size": 65,
+        "tick_size": 0.1,
+        "exchange": "NFO",
+        "symbol": "NIFTY26JUNFUT",
+        "instrument_token": 15956226,
+        "expiry_type": "weekly",
+        "expiry_day": "Tuesday"
+      },
+      "BANKNIFTY": {
+        "lot_size": 30,
+        "tick_size": 0.2,
+        "exchange": "NFO",
+        "symbol": "BANKNIFTY26JUNFUT",
+        "instrument_token": 15955458,
+        "expiry_type": "monthly",
+        "expiry_day": "Tuesday"
+      },
+      "HDFCBANK": {
+        "lot_size": 550,
+        "tick_size": 0.05,
+        "exchange": "NFO",
+        "symbol": "HDFCBANK26JUNFUT",
+        "instrument_token": 16023810,
+        "expiry_type": "monthly",
+        "expiry_day": "Tuesday"
+      },
+      "ICICIBANK": {
+        "lot_size": 700,
+        "tick_size": 0.1,
+        "exchange": "NFO",
+        "symbol": "ICICIBANK26JUNFUT",
+        "instrument_token": 16026626,
+        "expiry_type": "monthly",
+        "expiry_day": "Tuesday"
+      },
+      "SBIN": {
+        "lot_size": 750,
+        "tick_size": 0.05,
+        "exchange": "NFO",
+        "symbol": "SBIN26JUNFUT",
+        "instrument_token": 16079874,
+        "expiry_type": "monthly",
+        "expiry_day": "Tuesday"
+      },
+      "AXISBANK": {
+        "lot_size": 625,
+        "tick_size": 0.1,
+        "exchange": "NFO",
+        "symbol": "AXISBANK26JUNFUT",
+        "instrument_token": 15967490,
+        "expiry_type": "monthly",
+        "expiry_day": "Tuesday"
+      },
+      "KOTAKBANK": {
+        "lot_size": 2000,
+        "tick_size": 0.05,
+        "exchange": "NFO",
+        "symbol": "KOTAKBANK26JUNFUT",
+        "instrument_token": 16040706,
+        "expiry_type": "monthly",
+        "expiry_day": "Tuesday"
+      },
+      "INFY": {
+        "lot_size": 400,
+        "tick_size": 0.1,
+        "exchange": "NFO",
+        "symbol": "INFY26JUNFUT",
+        "instrument_token": 16030722,
+        "expiry_type": "monthly",
+        "expiry_day": "Tuesday"
+      },
+      "TCS": {
+        "lot_size": 175,
+        "tick_size": 0.1,
+        "exchange": "NFO",
+        "symbol": "TCS26JUNFUT",
+        "instrument_token": 16089858,
+        "expiry_type": "monthly",
+        "expiry_day": "Tuesday"
+      },
+      "WIPRO": {
+        "lot_size": 3000,
+        "tick_size": 0.01,
+        "exchange": "NFO",
+        "symbol": "WIPRO26JUNFUT",
+        "instrument_token": 16095746,
+        "expiry_type": "monthly",
+        "expiry_day": "Tuesday"
+      },
+      "HCLTECH": {
+        "lot_size": 350,
+        "tick_size": 0.1,
+        "exchange": "NFO",
+        "symbol": "HCLTECH26JUNFUT",
+        "instrument_token": 16023298,
+        "expiry_type": "monthly",
+        "expiry_day": "Tuesday"
+      },
+      "ITC": {
+        "lot_size": 1600,
+        "tick_size": 0.05,
+        "exchange": "NFO",
+        "symbol": "ITC26JUNFUT",
+        "instrument_token": 16032002,
+        "expiry_type": "monthly",
+        "expiry_day": "Tuesday"
+      },
+      "HINDUNILVR": {
+        "lot_size": 300,
+        "tick_size": 0.1,
+        "exchange": "NFO",
+        "symbol": "HINDUNILVR26JUNFUT",
+        "instrument_token": 16025090,
+        "expiry_type": "monthly",
+        "expiry_day": "Tuesday"
+      },
+      "ONGC": {
+        "lot_size": 2250,
+        "tick_size": 0.05,
+        "exchange": "NFO",
+        "symbol": "ONGC26JUNFUT",
+        "instrument_token": 16060930,
+        "expiry_type": "monthly",
+        "expiry_day": "Tuesday"
+      }
+    }
+  },
+  "trades": []
+}
