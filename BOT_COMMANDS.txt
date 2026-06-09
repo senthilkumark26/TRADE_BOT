@@ -1,0 +1,60 @@
+================================================================================
+TRADING BOT COMMANDS - CORRECT PATHS
+================================================================================
+
+1. NSE Trading (single_strike_trader)
+   Location: bots/single_strike_trader.py
+   Command: python bots\single_strike_trader.py --investment 30000 --paper-trading --symbols NIFTY,BANKNIFTY
+   Disable Watchdog: python bots\single_strike_trader.py --investment 30000 --paper-trading --symbols NIFTY,BANKNIFTY --disable-watchdog
+
+2. MCX Trading (mcx_only_bot)
+   Location: mcx_only_bot.py (root directory)
+   Command: python mcx_only_bot.py --mode options --investment 30000 --paper-trading
+   Disable Watchdog: python mcx_only_bot.py --mode options --investment 30000 --paper-trading --disable-watchdog
+
+3. Telegram Trading (telegram_only_bot)
+   Location: telegram/telegram_only_bot.py
+   Command: python telegram\telegram_only_bot.py --investment 30000 --paper-trading
+   Disable Watchdog: python telegram\telegram_only_bot.py --investment 30000 --paper-trading --disable-watchdog
+
+4. Main LLM Trading (trading_bot)
+   Location: bots/trading_bot.py
+   Command: python bots\trading_bot.py --instrument NIFTY
+   Interactive: disable watchdog (in interactive mode)
+
+================================================================================
+FILE STRUCTURE
+================================================================================
+
+D:\Traiding_Bot\
+├── bots\
+│   ├── single_strike_trader.py  ← NSE Trading
+│   ├── trading_bot.py           ← Main LLM Trading
+│   └── ...
+├── telegram\
+│   ├── telegram_only_bot.py     ← Telegram Trading
+│   └── ...
+└── mcx_only_bot.py              ← MCX Trading (root directory)
+
+================================================================================
+COMMON OPTIONS
+================================================================================
+
+--investment AMOUNT    Set investment amount (default: 30000)
+--paper-trading        Enable paper trading mode (no real orders)
+--live                 Force live mode (REAL MONEY AT RISK)
+--disable-watchdog     Disable watchdog monitoring (enabled by default)
+--symbols SYMBOLS      Comma-separated symbols to trade
+--mode MODE            Trading mode (futures/options for MCX)
+
+================================================================================
+WATCHDOG SERVICE
+================================================================================
+
+Status: ENABLED BY DEFAULT for all bots
+
+To disable watchdog monitoring, add --disable-watchdog flag to any command.
+
+Health reports are saved to: watchdog_health_report.json
+
+================================================================================

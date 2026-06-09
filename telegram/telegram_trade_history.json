@@ -1,0 +1,11 @@
+{
+  "trading_session": {
+    "start_capital": 30000.0,
+    "end_capital": 30000.0,
+    "total_pnl": 0,
+    "total_trades": 0,
+    "date": "2026-06-09",
+    "signal_source": "TELEGRAM_ONLY"
+  },
+  "trades": []
+}

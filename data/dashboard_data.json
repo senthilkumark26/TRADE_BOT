@@ -1,0 +1,25 @@
+{
+  "active": {
+    "NIFTY": {
+      "symbol": "NIFTY",
+      "tradingsymbol": "NIFTY2660923250CE",
+      "instrument_token": 10825218,
+      "signal": "CALL",
+      "strike": 23250,
+      "entry": 100.0,
+      "sl": 70.0,
+      "target": 130.0,
+      "expiry": "2026-06-09",
+      "ltp": 100.0,
+      "pnl": 0,
+      "status": "RUNNING",
+      "lot_size": 65,
+      "entry_time": "2026-06-08T13:07:46.341942"
+    }
+  },
+  "closed": [],
+  "total_pnl": 0,
+  "max_daily_loss": -3000,
+  "status": "ACTIVE",
+  "last_update": "2026-06-08T13:07:46.341942"
+}

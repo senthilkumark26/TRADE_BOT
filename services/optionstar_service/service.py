@@ -45,13 +45,14 @@ class OptionStarService:
         logger.info(f"Protection Level: {self.protection_level}")
         logger.info(f"Continuous Monitoring: Enabled")
     
-    def calculate_institutional_walls(self, option_chain_data: Dict[str, Any], spot_price: float) -> Dict[str, Any]:
+    def calculate_institutional_walls(self, option_chain_data: Dict[str, Any], spot_price: float, symbol: str = "UNKNOWN") -> Dict[str, Any]:
         """
         Calculate institutional support/resistance using Option Chain Open Interest.
 
         Args:
             option_chain_data: Dict containing option chain (calls + puts)
             spot_price: Current underlying price
+            symbol: Symbol name for logging (default: UNKNOWN)
 
         Returns:
             Dict with support/resistance levels and bias
@@ -64,15 +65,87 @@ class OptionStarService:
             if not calls or not puts:
                 return {"error": "Invalid option chain data"}
 
-            # --- Find Max Call OI (Resistance Wall)
-            max_call = max(calls, key=lambda x: x.get("openInterest", 0))
-            call_resistance = max_call.get("strikePrice")
-            max_call_oi = max_call.get("openInterest", 0)
+            # --- Find Max Call OI (Resistance Wall) - TOP 3 NEAREST TO SPOT
+            sorted_calls = sorted(calls, key=lambda x: x.get("openInterest", 0), reverse=True)
+            
+            # Take top 3 OI levels
+            top_calls = sorted_calls[:3]
+            
+            # Pick nearest to spot (IMPORTANT FIX)
+            call_resistance = min(
+                top_calls,
+                key=lambda x: abs(x.get("strikePrice") - spot_price)
+            ).get("strikePrice")
+            
+            # Get corresponding OI
+            max_call_oi = next(x.get("openInterest") for x in top_calls if x.get("strikePrice") == call_resistance)
 
-            # --- Find Max Put OI (Support Wall)
-            max_put = max(puts, key=lambda x: x.get("openInterest", 0))
-            put_support = max_put.get("strikePrice")
-            max_put_oi = max_put.get("openInterest", 0)
+            # --- Find Max Put OI (Support Wall) - TOP 3 NEAREST TO SPOT
+            sorted_puts = sorted(puts, key=lambda x: x.get("openInterest", 0), reverse=True)
+            
+            # Take top 3 OI levels
+            top_puts = sorted_puts[:3]
+            
+            # Pick nearest to spot (IMPORTANT FIX)
+            put_support = min(
+                top_puts,
+                key=lambda x: abs(x.get("strikePrice") - spot_price)
+            ).get("strikePrice")
+            
+            # Get corresponding OI
+            max_put_oi = next(x.get("openInterest") for x in top_puts if x.get("strikePrice") == put_support)
+
+            # --- SANITY CHECK: Support vs Resistance ---
+            if call_resistance == put_support:
+                logger.warning(f"[OPTIONSTAR] Support and Resistance at same strike: {call_resistance}")
+                logger.warning(f"[OPTIONSTAR] This indicates narrow option chain range or OI clustering")
+                logger.warning(f"[OPTIONSTAR] Calls: {len(calls)}, Puts: {len(puts)}, Max Call OI: {max_call_oi}, Max Put OI: {max_put_oi}")
+                
+                # FALLBACK: Use next nearest strikes from top 5
+                try:
+                    # Expand to top 5 for fallback
+                    expanded_calls = sorted_calls[:5]
+                    expanded_puts = sorted_puts[:5]
+                    
+                    # Use second-nearest call strike if available
+                    if len(expanded_calls) > 1:
+                        # Exclude current resistance, pick next nearest
+                        remaining_calls = [x for x in expanded_calls if x.get("strikePrice") != call_resistance]
+                        if remaining_calls:
+                            second_call = min(
+                                remaining_calls,
+                                key=lambda x: abs(x.get("strikePrice") - spot_price)
+                            )
+                            if second_call.get("strikePrice") != put_support:
+                                call_resistance = second_call.get("strikePrice")
+                                max_call_oi = second_call.get("openInterest", 0)
+                                logger.info(f"[OPTIONSTAR] Fallback: Using 2nd nearest call strike: {call_resistance} (OI: {max_call_oi})")
+                    
+                    # Use second-nearest put strike if available
+                    if len(expanded_puts) > 1:
+                        # Exclude current support, pick next nearest
+                        remaining_puts = [x for x in expanded_puts if x.get("strikePrice") != put_support]
+                        if remaining_puts:
+                            second_put = min(
+                                remaining_puts,
+                                key=lambda x: abs(x.get("strikePrice") - spot_price)
+                            )
+                            if second_put.get("strikePrice") != call_resistance:
+                                put_support = second_put.get("strikePrice")
+                                max_put_oi = second_put.get("openInterest", 0)
+                                logger.info(f"[OPTIONSTAR] Fallback: Using 2nd nearest put strike: {put_support} (OI: {max_put_oi})")
+                            
+                except Exception as fallback_error:
+                    logger.error(f"[OPTIONSTAR] Fallback failed: {fallback_error}")
+            
+            # --- SECOND SANITY CHECK: Still same strike after fallback ---
+            if call_resistance == put_support:
+                logger.error(f"[OPTIONSTAR] CRITICAL: Support and Resistance still same after fallback: {call_resistance}")
+                logger.error(f"[OPTIONSTAR] Option chain range is too narrow - need wider strike range")
+                # Last resort: Use spot price ± standard deviation
+                call_resistance = spot_price + 100  # Default resistance
+                put_support = spot_price - 100  # Default support
+                logger.warning(f"[OPTIONSTAR] Last resort: Using default S/R around spot: S={put_support}, R={call_resistance}")
 
             # --- Distance Calculation
             distance_to_resistance = call_resistance - spot_price
@@ -85,6 +158,25 @@ class OptionStarService:
                 bias = "BEARISH"
             else:
                 bias = "NEUTRAL"
+
+            # --- CONFIDENCE SCORING (NEW) ---
+            # Calculate OI gap between top levels (IMPROVED FORMULA)
+            oi_gap = abs(max_call_oi - max_put_oi)
+            max_oi = max(max_call_oi, max_put_oi)
+            oi_gap_percentage = (oi_gap / max_oi) * 100 if max_oi > 0 else 0
+            
+            # Calculate confidence based on OI gap
+            if oi_gap_percentage > 30:
+                confidence = "HIGH"  # Strong gap between CE/PE OI
+                confidence_score = 0.8
+            elif oi_gap_percentage > 15:
+                confidence = "MEDIUM"  # Moderate gap
+                confidence_score = 0.6
+            else:
+                confidence = "LOW"  # Clustered OI, weak signal
+                confidence_score = 0.4
+            
+            logger.info(f"[OPTIONSTAR] {symbol} Confidence: {confidence} (OI Gap: {oi_gap_percentage:.1f}%, Call OI: {max_call_oi}, Put OI: {max_put_oi})")
 
             return {
                 "spot_price": spot_price,
@@ -99,10 +191,17 @@ class OptionStarService:
                     "distance": distance_to_support
                 },
                 "trend_bias": bias,
+                "confidence": {
+                    "level": confidence,
+                    "score": confidence_score,
+                    "oi_gap_percentage": oi_gap_percentage,
+                    "oi_gap": oi_gap
+                },
                 "service_metadata": {
                     "service": self.service_name,
                     "version": self.version,
-                    "timestamp": datetime.now().isoformat()
+                    "timestamp": datetime.now().isoformat(),
+                    "warning": "Fallback used" if call_resistance == put_support else None
                 }
             }
 
@@ -146,7 +245,7 @@ class OptionStarService:
             }
             
             # Calculate institutional walls
-            institutional_data = self.calculate_institutional_walls(option_chain_data, current_price)
+            institutional_data = self.calculate_institutional_walls(option_chain_data, current_price, symbol)
             
             if "error" in institutional_data:
                 logger.error(f"OptionStar error for {symbol}: {institutional_data['error']}")
@@ -260,10 +359,10 @@ def get_optionstar_service() -> OptionStarService:
 
 
 # Convenience functions that delegate to the service
-def calculate_institutional_walls(option_chain_data: Dict[str, Any], spot_price: float) -> Dict[str, Any]:
+def calculate_institutional_walls(option_chain_data: Dict[str, Any], spot_price: float, symbol: str = "UNKNOWN") -> Dict[str, Any]:
     """Convenience function for calculate_institutional_walls"""
     service = get_optionstar_service()
-    return service.calculate_institutional_walls(option_chain_data, spot_price)
+    return service.calculate_institutional_walls(option_chain_data, spot_price, symbol)
 
 
 def generate_trade(current_price: float, vwap: float, option_chain: list, symbol: str) -> Dict[str, Any]:
@@ -298,7 +397,7 @@ def start_continuous_monitoring(self, symbols: list, option_chain_provider):
                     option_chain = self.option_chain_provider(symbol)
                     if option_chain:
                         # Calculate support/resistance
-                        walls = self.calculate_institutional_walls(option_chain, 0)
+                        walls = self.calculate_institutional_walls(option_chain, 0, symbol)
                         
                         # Store current walls
                         self.current_walls[symbol] = walls
