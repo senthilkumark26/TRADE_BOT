@@ -324,11 +324,15 @@ class SingleStrikeTrader:
         # Start OptionStar continuous monitoring
         if self.optionstar_service:
             symbols_to_monitor = self.symbols if self.symbols else list(self.config.get('instruments', {}).keys())
+            # Filter out MCX symbols for OptionStar (NSE only)
+            mcx_symbols = ['CRUDEOIL', 'NATGAS', 'GOLDM', 'SILVERM', 'NATURALGAS', 'COPPER', 'ZINC', 'LEAD', 'ALUMINIUM']
+            symbols_to_monitor = [sym for sym in symbols_to_monitor if sym not in mcx_symbols]
             self.optionstar_service.start_continuous_monitoring(
                 symbols=symbols_to_monitor,
                 option_chain_provider=self.get_option_chain_for_optionstar
             )
-            logger.info(f"OptionStar continuous monitoring started for {len(symbols_to_monitor)} symbols")
+            logger.info(f"OptionStar continuous monitoring started for {len(symbols_to_monitor)} NSE symbols")
+
         
         # Initialize historical data for all configured instruments (best effort)
         logger.info("Initializing historical data for Engine 1...")
@@ -346,8 +350,13 @@ class SingleStrikeTrader:
         if self.symbols:
             monitor_symbols = self.symbols
         else:
-            # Use all instruments from config (NSE-only)
-            monitor_symbols = list(self.config.get('instruments', {}).keys())
+            # Use all instruments from config (NSE-only - filter out MCX)
+            all_instruments = list(self.config.get('instruments', {}).keys())
+            # Filter out MCX symbols - keep only NSE symbols
+            mcx_symbols = ['CRUDEOIL', 'NATGAS', 'GOLDM', 'SILVERM', 'NATURALGAS', 'COPPER', 'ZINC', 'LEAD', 'ALUMINIUM']
+            monitor_symbols = [sym for sym in all_instruments if sym not in mcx_symbols]
+            logger.info(f"NSE-only mode: Filtered out MCX symbols. Trading {len(monitor_symbols)} NSE instruments: {monitor_symbols}")
+
         
         # ========================================
         # SPOT WEBSOCKET (NSE) - For spot prices
@@ -1878,43 +1887,37 @@ class SingleStrikeTrader:
             # INTELLIGENT EXIT: Time + Weak Market = Exit (Pro-Level Logic)
             # Time alone should NOT close trade
             # Time + Weak Market = Exit
-            # ONLY FOR NSE SYMBOLS - NOT FOR MCX
+            # NSE ONLY - single_strike_trader.py is NSE-only bot
             if self.entry_time:
-                # Check if symbol is NSE (not MCX)
-                is_mcx_symbol = any(mcx in self.current_symbol.upper() for mcx in ['CRUDEOIL', 'NATGAS', 'GOLDM', 'SILVERM', 'NATURALGAS', 'COPPER', 'ZINC', 'LEAD', 'ALUMINIUM'])
+                trade_duration = (datetime.now() - self.entry_time).total_seconds() / 60  # in minutes
                 
-                if not is_mcx_symbol:  # Only apply intelligent exit to NSE symbols
-                    trade_duration = (datetime.now() - self.entry_time).total_seconds() / 60  # in minutes
+                if trade_duration > 45:  # 45-minute threshold
+                    # Calculate momentum strength
+                    momentum_strength = abs(pnl_percentage) / 100  # Convert percentage to decimal
                     
-                    if trade_duration > 45:  # 45-minute threshold
-                        # Calculate momentum strength
-                        momentum_strength = abs(pnl_percentage) / 100  # Convert percentage to decimal
-                        
-                        # Check if trade is NOT working
-                        exit_reason = None
-                        
-                        # Condition 1: No momentum (price stuck near entry)
-                        if momentum_strength < 0.003:  # Less than 0.3% move in 45 min
-                            exit_reason = "Time + No Momentum (sideways)"
-                        
-                        # Condition 2: Negative momentum (trade going against)
-                        elif pnl_percentage < -1.0:  # Losing more than 1%
-                            exit_reason = "Time + Negative Momentum"
-                        
-                        # Condition 3: Weak positive momentum (not enough progress)
-                        elif pnl_percentage > 0 and pnl_percentage < 0.5:  # Positive but weak (<0.5% in 45 min)
-                            exit_reason = "Time + Weak Momentum"
-                        
-                        # Exit if trade is NOT working
-                        if exit_reason:
-                            logger.warning(f"[INTELLIGENT EXIT] {self.current_symbol} - {exit_reason} (duration: {trade_duration:.1f} min, P&L: {pnl_percentage:+.2f}%)")
-                            self.close_trade(exit_reason, current_price, pnl)
-                            return False
-                        else:
-                            # Trade IS working - let it run
-                            logger.info(f"[INTELLIGENT EXIT] {self.current_symbol} - Trade working (momentum: {pnl_percentage:+.2f}%, duration: {trade_duration:.1f} min) - HOLDING")
-                else:
-                    logger.debug(f"[INTELLIGENT EXIT] {self.current_symbol} is MCX symbol - skipping intelligent exit (handled by mcx_only_bot.py)")
+                    # Check if trade is NOT working
+                    exit_reason = None
+                    
+                    # Condition 1: No momentum (price stuck near entry)
+                    if momentum_strength < 0.003:  # Less than 0.3% move in 45 min
+                        exit_reason = "Time + No Momentum (sideways)"
+                    
+                    # Condition 2: Negative momentum (trade going against)
+                    elif pnl_percentage < -1.0:  # Losing more than 1%
+                        exit_reason = "Time + Negative Momentum"
+                    
+                    # Condition 3: Weak positive momentum (not enough progress)
+                    elif pnl_percentage > 0 and pnl_percentage < 0.5:  # Positive but weak (<0.5% in 45 min)
+                        exit_reason = "Time + Weak Momentum"
+                    
+                    # Exit if trade is NOT working
+                    if exit_reason:
+                        logger.warning(f"[INTELLIGENT EXIT] {self.current_symbol} - {exit_reason} (duration: {trade_duration:.1f} min, P&L: {pnl_percentage:+.2f}%)")
+                        self.close_trade(exit_reason, current_price, pnl)
+                        return False
+                    else:
+                        # Trade IS working - let it run
+                        logger.info(f"[INTELLIGENT EXIT] {self.current_symbol} - Trade working (momentum: {pnl_percentage:+.2f}%, duration: {trade_duration:.1f} min) - HOLDING")
             
             # Update Trade Manager with live price
             self.trade_manager_service.update_price(self.current_symbol, current_price)
