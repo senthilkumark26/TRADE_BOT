@@ -252,7 +252,7 @@ class OptionsWebSocket:
                     if segment not in ["NFO", "NFO-OPT"]:  # Accept both NFO and NFO-OPT
                         non_nfo_tokens += 1
                         if non_nfo_tokens <= 5:  # Log first 5 to avoid spam
-                            logger.warning(f"[SEGMENT FILTER] Skipping non-NFO token: {inst.get('tradingsymbol')} (Segment: {segment})")
+                            logger.warning(f"[SEGMENT FILTER] Skipping non-NFO token (Segment: {segment})")
                         continue
                     
                     token = inst["instrument_token"]
