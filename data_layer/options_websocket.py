@@ -238,6 +238,7 @@ class OptionsWebSocket:
             # The issue is likely in WebSocket subscription success, not selection logic
             ce_tokens = 0
             pe_tokens = 0
+            non_nfo_tokens = 0  # Track tokens filtered out due to wrong segment
             
             for inst in instruments:
                 if (
@@ -246,6 +247,14 @@ class OptionsWebSocket:
                     inst["strike"] in strike_range and
                     inst["instrument_type"] in ["CE", "PE"]
                 ):
+                    # CRITICAL: Check segment - only NFO tokens receive WebSocket data
+                    segment = inst.get("segment", "N/A")
+                    if segment != "NFO":
+                        non_nfo_tokens += 1
+                        if non_nfo_tokens <= 5:  # Log first 5 to avoid spam
+                            logger.warning(f"[SEGMENT FILTER] Skipping non-NFO token: {inst.get('tradingsymbol')} (Segment: {segment})")
+                        continue
+                    
                     token = inst["instrument_token"]
                     trading_symbol = inst["tradingsymbol"]
                     
@@ -258,7 +267,7 @@ class OptionsWebSocket:
                     self.token_symbol_map[token] = trading_symbol
                     tokens.append(token)
                     
-                    logger.info(f"Option token: {trading_symbol} -> {token}")
+                    logger.debug(f"Option token: {tradingymbol} -> {token} (Segment: {inst.get('segment', 'N/A')})")
             
             logger.info(f"Loaded {len(tokens)} option tokens for {symbol} (CE: {ce_tokens}, PE: {pe_tokens})")
             logger.info(f"[DEBUG] Returning {len(tokens)} tokens from get_option_tokens")
