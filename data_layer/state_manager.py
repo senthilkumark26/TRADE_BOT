@@ -94,7 +94,7 @@ class StateManager:
             self.first_tick_timestamps[token] = current_time
             self.first_tick_received.add(token)  # CRITICAL: Add to set for monitor visibility
             delay = (current_time - self.subscription_timestamps.get(token, current_time)).total_seconds() * 1000
-            logger.info(f"[WS TICK] Token {token} received FIRST tick after {delay:.0f}ms")
+            logger.debug(f"[WS TICK] Token {token} received FIRST tick after {delay:.0f}ms")
         else:
             # Log every 10th tick to avoid spam
             tick_count = len(self.tick_counts.get(token, []))
@@ -461,7 +461,7 @@ class StateManager:
                 # This handles STALE entries that later become LIVE
                 if not is_stale and trade.get('entry_source') == 'STALE':
                     trade['entry_source'] = 'LIVE'
-                    logger.info(f"[ENTRY SOURCE UPDATE] {trade.get('symbol')} updated from STALE to LIVE")
+                    logger.debug(f"[ENTRY SOURCE UPDATE] {trade.get('symbol')} updated from STALE to LIVE")
                 
                 # Calculate P&L
                 # For long option positions (buying CE/PE), PnL is same for both types:
@@ -472,7 +472,7 @@ class StateManager:
                 pnl = (current_price - entry_price) * quantity
                 
                 trade['pnl'] = pnl
-                logger.info(f"[UI UPDATE] {trade.get('symbol')} LTP: Rs.{current_price}, PnL: Rs.{pnl:.2f} (Previous: Rs.{old_price}), Source: {trade.get('entry_source')}")
+                logger.debug(f"[UI UPDATE] {trade.get('symbol')} LTP: Rs.{current_price}, PnL: Rs.{pnl:.2f} (Previous: Rs.{old_price}), Source: {trade.get('entry_source')}")
                 return True
         
         return False

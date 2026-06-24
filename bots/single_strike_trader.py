@@ -115,7 +115,7 @@ class SingleStrikeTrader:
     # Execution ID tracking to prevent stale thread results
     _current_execution_id = 0  # Class-level execution counter
     
-    def __init__(self, investment_amount=30000, paper_trading=None, symbols=None):
+    def __init__(self, investment_amount=30000, paper_trading=None, symbols=None, debug_mode=False):
         # Load config
         with open('config.json', 'r') as f:
             self.config = json.load(f)
@@ -132,6 +132,9 @@ class SingleStrikeTrader:
             paper_trading = self.config.get("paper_trading", False)
         
         self.paper_trading = paper_trading
+        
+        # Debug mode for detailed logging
+        self.debug_mode = debug_mode
         
         # Execution ID for this instance (prevents stale thread results from affecting decisions)
         self._execution_id = 0
@@ -3191,11 +3194,11 @@ class SingleStrikeTrader:
                     entry_source = "LIVE"
                 else:
                     entry_source = "STALE"
-                logger.info(f"[ENTRY DATA SOURCE] {symbol} {strike_price} {direction} | Token: {instrument_token} | Source: {entry_source} ({price_source}) | Price: Rs.{option_price}")
+                logger.debug(f"[ENTRY DATA SOURCE] {symbol} {strike_price} {direction} | Token: {instrument_token} | Source: {entry_source} ({price_source}) | Price: Rs.{option_price}")
                 if entry_source == "STALE":
                     logger.warning(f"[ENTRY DATA SOURCE WARNING] Trade entry using STALE price - WebSocket not receiving ticks for this token!")
                     logger.warning(f"[ENTRY DATA SOURCE WARNING] This trade will likely show STALE in monitor initially")
-                    logger.info(f"[ENTRY DATA SOURCE] Allowing STALE entry with safeguards - WebSocket subscription will be attempted")
+                    logger.debug(f"[ENTRY DATA SOURCE] Allowing STALE entry with safeguards - WebSocket subscription will be attempted")
                     
                     # OPTIONAL: Restrict STALE entries to high OI/liquid contracts only
                     # Check OI from option_chain
@@ -3207,7 +3210,7 @@ class SingleStrikeTrader:
                                 break
                     
                     if oi > 0:
-                        logger.info(f"[ENTRY DATA SOURCE] STALE entry allowed - OI: {oi} (liquid contract)")
+                        logger.debug(f"[ENTRY DATA SOURCE] STALE entry allowed - OI: {oi} (liquid contract)")
                     else:
                         logger.warning(f"[ENTRY DATA SOURCE] STALE entry with low/zero OI: {oi} - may be illiquid")
                         # Still allow but with warning
@@ -3769,19 +3772,19 @@ class SingleStrikeTrader:
 
             # CRITICAL FIX: Add trade to StateManager for Pro Monitor UI live updates
             # Trade Token at Execution
-            logger.info(f"[TRADE TOKEN] {symbol} {strike} {direction} Token: {instrument_token}")
-            logger.info(f"[TRADE TOKEN] Tradingsymbol: {tradingsymbol}")
+            logger.debug(f"[TRADE TOKEN] {symbol} {strike} {direction} Token: {instrument_token}")
+            logger.debug(f"[TRADE TOKEN] Tradingsymbol: {tradingsymbol}")
             
             # WebSocket Assignment - Which WebSocket will handle this token?
             if hasattr(self, 'options_ws_client') and self.options_ws_client:
-                logger.info(f"[WS ASSIGNMENT] Token {instrument_token} assigned to OPTIONS WebSocket")
+                logger.debug(f"[WS ASSIGNMENT] Token {instrument_token} assigned to OPTIONS WebSocket")
             else:
-                logger.info(f"[WS ASSIGNMENT] Token {instrument_token} assigned to SPOT WebSocket (options_ws_client not available)")
+                logger.debug(f"[WS ASSIGNMENT] Token {instrument_token} assigned to SPOT WebSocket (options_ws_client not available)")
 
             # Subscribe to instrument token for live price updates
             self.state_manager.subscribe_token(instrument_token)
-            logger.info(f"[WS SUBSCRIPTION] Subscribed to token {instrument_token}")
-            logger.info(f"[WS SUBSCRIPTION] Token in subscribed_tokens: {instrument_token in self.state_manager.subscribed_tokens}")
+            logger.debug(f"[WS SUBSCRIPTION] Subscribed to token {instrument_token}")
+            logger.debug(f"[WS SUBSCRIPTION] Token in subscribed_tokens: {instrument_token in self.state_manager.subscribed_tokens}")
             
             # CRITICAL FIX: Actually subscribe to the token in the WebSocket
             # StateManager.subscribe_token only tracks locally, doesn't send to Kite
@@ -3791,17 +3794,17 @@ class SingleStrikeTrader:
                 
                 subscribe_success = self.ws_client.subscribe_tokens([instrument_token])
                 if subscribe_success:
-                    logger.info(f"[WS SUBSCRIPTION] Successfully sent subscription request to Kite for token {instrument_token}")
-                    logger.info(f"[WS POST-TRADE SUBSCRIBE] Token {instrument_token} sent to Kite after trade execution")
+                    logger.debug(f"[WS SUBSCRIPTION] Successfully sent subscription request to Kite for token {instrument_token}")
+                    logger.debug(f"[WS POST-TRADE SUBSCRIBE] Token {instrument_token} sent to Kite after trade execution")
                 else:
                     logger.error(f"[WS SUBSCRIPTION] Failed to send subscription request to Kite for token {instrument_token}")
             
             # Also set in options websocket if available
             if hasattr(self, 'options_ws_client') and self.options_ws_client:
                 self.options_ws_client.set_active_trade_token(instrument_token)
-                logger.info(f"[WS SUBSCRIPTION] Active trade token set in Options WebSocket: {instrument_token}")
+                logger.debug(f"[WS SUBSCRIPTION] Active trade token set in Options WebSocket: {instrument_token}")
             else:
-                logger.warning(f"[WS SUBSCRIPTION] No WebSocket client available, cannot send subscription to Kite")
+                logger.debug(f"[WS SUBSCRIPTION] No WebSocket client available, cannot send subscription to Kite")
             
             # CRITICAL FIX: Validate subscription was successful
             if instrument_token not in self.state_manager.subscribed_tokens:
@@ -3809,9 +3812,9 @@ class SingleStrikeTrader:
                 logger.error(f"[WS SUBSCRIPTION FAILED] Subscribed tokens: {len(self.state_manager.subscribed_tokens)}")
                 logger.error(f"[WS SUBSCRIPTION FAILED] Current subscribed_tokens: {list(self.state_manager.subscribed_tokens)[:10]}...")
             else:
-                logger.info(f"[WS SUBSCRIPTION VALIDATED] Token {instrument_token} successfully in subscribed_tokens list")
-                logger.info(f"[WS SUBSCRIPTION VALIDATED] Total subscribed tokens: {len(self.state_manager.subscribed_tokens)}")
-                logger.info(f"[WS SUBSCRIPTION VALIDATED] Sample subscribed tokens: {list(self.state_manager.subscribed_tokens)[:5]}")
+                logger.debug(f"[WS SUBSCRIPTION VALIDATED] Token {instrument_token} successfully in subscribed_tokens list")
+                logger.debug(f"[WS SUBSCRIPTION VALIDATED] Total subscribed tokens: {len(self.state_manager.subscribed_tokens)}")
+                logger.debug(f"[WS SUBSCRIPTION VALIDATED] Sample subscribed tokens: {list(self.state_manager.subscribed_tokens)[:5]}")
 
             # CRITICAL FIX: Add trade to self.active_trades for monitor trigger
             # This is required for the monitor to detect active trades
@@ -3834,8 +3837,8 @@ class SingleStrikeTrader:
                 "is_stale": False  # Initialize as not stale
             }
             self.active_trades[symbol] = trade_record
-            logger.info(f"[ACTIVE TRADES] Trade added to self.active_trades: {symbol}")
-            logger.info(f"[ACTIVE TRADES] Total active trades: {len(self.active_trades)}")
+            logger.debug(f"[ACTIVE TRADES] Trade added to self.active_trades: {symbol}")
+            logger.debug(f"[ACTIVE TRADES] Total active trades: {len(self.active_trades)}")
 
             # CRITICAL FIX: Store option chain for monitoring (single source of truth)
             # We need to find which option_chain was used for this trade
@@ -3889,7 +3892,7 @@ class SingleStrikeTrader:
                 opportunity_entry_source = self.current_opportunity.get('entry_source', 'LIVE')
                 if opportunity_entry_source == 'STALE':
                     trade_data['entry_source'] = 'STALE'
-                    logger.info(f"[TRADE ENTRY] Trade entry source: STALE (WebSocket ticks may not be available yet)")
+                    logger.debug(f"[TRADE ENTRY] Trade entry source: STALE (WebSocket ticks may not be available yet)")
             
             self.state_manager.add_trade(trade_data)
             logger.info(f"[TRADE REGISTERED] Token: {instrument_token}")
@@ -3906,8 +3909,8 @@ class SingleStrikeTrader:
                 logger.error(f"[CRITICAL] Trade NOT stored in state_manager: {instrument_token}")
                 logger.error(f"[CRITICAL] Available tokens: {[t.get('instrument_token') for t in active_trades]}")
             else:
-                logger.info(f"[CRITICAL] ✓ Trade successfully stored: {instrument_token}")
-                logger.info(f"[CRITICAL] Active trades count: {len(active_trades)}")
+                logger.info(f"[TRADE REGISTERED] Token: {instrument_token} stored successfully")
+                logger.debug(f"[CRITICAL] Active trades count: {len(active_trades)}")
 
             # CRITICAL FIX: Start monitor IMMEDIATELY after trade state update
             # This eliminates race condition - monitor is guaranteed to start if execution succeeds
@@ -4018,21 +4021,22 @@ class SingleStrikeTrader:
             last_stale_price = None  # Track last stale price to detect movement
             
             # SECONDARY FIX: Data readiness - Check first tick from shared state_manager
-            logger.info(f"[DATA READINESS] Checking first tick for {self.current_symbol} (Token: {instrument_token})")
-            logger.info(f"[MONITOR CHECK] First tick received for {instrument_token}: {instrument_token in self.state_manager.first_tick_received}")
+            logger.debug(f"[DATA READINESS] Checking first tick for {self.current_symbol} (Token: {instrument_token})")
+            logger.debug(f"[MONITOR CHECK] First tick received for {instrument_token}: {instrument_token in self.state_manager.first_tick_received}")
             
             # Validation log
             if instrument_token in self.state_manager.first_tick_received:
-                logger.info(f"[DATA READINESS] ✓ First tick already received (monitor can start immediately)")
+                logger.debug(f"[DATA READINESS] ✓ First tick already received (monitor can start immediately)")
             else:
-                logger.info(f"[DATA READINESS] First tick not received yet - will monitor for arrival")
+                logger.debug(f"[DATA READINESS] First tick not received yet - will monitor for arrival")
             
             # Do NOT block - just log and continue
             # Monitor will update trade state when ticks arrive
 
             while len(self.active_trades) > 0:
                 loop_count += 1
-                logger.debug(f"[MONITOR DEBUG] Monitor loop iteration #{loop_count}")
+                if loop_count % 10 == 0:  # Log every 10 iterations
+                    logger.debug(f"[MONITOR DEBUG] Monitor loop iteration #{loop_count}")
                 logger.debug(f"[MONITOR DEBUG] Active trades: {len(self.active_trades)}")
                 logger.debug(f"[MONITOR DEBUG] self.current_option_chain: {'Available' if hasattr(self, 'current_option_chain') and self.current_option_chain else 'None'}")
 
@@ -4113,7 +4117,7 @@ class SingleStrikeTrader:
                     
                     # CRITICAL FIX: Check if first tick has arrived (from shared state_manager)
                     if instrument_token and instrument_token in self.state_manager.first_tick_received:
-                        logger.info(f"[WS HEALTH] First tick received for {instrument_token} - trade should be LIVE now")
+                        logger.debug(f"[WS HEALTH] First tick received for {instrument_token} - trade should be LIVE now")
                         # Update last_ws_tick_time to prevent repeated warnings
                         last_ws_tick_time = current_time
 
@@ -5715,6 +5719,8 @@ if __name__ == "__main__":
                        help='Disable MCX sentiment filter')
     parser.add_argument('--disable-watchdog', action='store_true',
                        help='Disable watchdog monitoring (enabled by default)')
+    parser.add_argument('--debug', action='store_true',
+                       help='Enable debug mode with detailed logging')
     args = parser.parse_args()
 
     # Determine mode based on arguments
@@ -5743,7 +5749,7 @@ if __name__ == "__main__":
     
     # Initialize trader with investment amount and optional symbols
     print("Initializing trader...")
-    trader = SingleStrikeTrader(investment_amount=args.investment, paper_trading=paper_trading, symbols=symbols)
+    trader = SingleStrikeTrader(investment_amount=args.investment, paper_trading=paper_trading, symbols=symbols, debug_mode=args.debug)
     print("Trader initialized successfully")
     print()
     

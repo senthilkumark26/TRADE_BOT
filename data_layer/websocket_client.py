@@ -157,7 +157,7 @@ class WebSocketClient:
             if self.active_trade_token and token == self.active_trade_token:
                 # First Tick Confirmation
                 if token not in self.received_first_tick:
-                    logger.info(f"[WS FIRST TICK] Token {token} received first tick")
+                    logger.debug(f"[WS FIRST TICK] Token {token} received first tick")
                     self.received_first_tick.add(token)
             
             symbol = self.symbol_map.get(token)
