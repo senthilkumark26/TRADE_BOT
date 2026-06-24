@@ -247,9 +247,9 @@ class OptionsWebSocket:
                     inst["strike"] in strike_range and
                     inst["instrument_type"] in ["CE", "PE"]
                 ):
-                    # CRITICAL: Check segment - only NFO tokens receive WebSocket data
+                    # CRITICAL: Check segment - only NFO/NFO-OPT tokens receive WebSocket data
                     segment = inst.get("segment", "N/A")
-                    if segment != "NFO":
+                    if segment not in ["NFO", "NFO-OPT"]:  # Accept both NFO and NFO-OPT
                         non_nfo_tokens += 1
                         if non_nfo_tokens <= 5:  # Log first 5 to avoid spam
                             logger.warning(f"[SEGMENT FILTER] Skipping non-NFO token: {inst.get('tradingsymbol')} (Segment: {segment})")
