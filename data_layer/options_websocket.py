@@ -373,17 +373,18 @@ class OptionsWebSocket:
         tokens = list(self.token_symbol_map.keys())
         
         logger.info(f"[WS CONNECTED] Subscribing to {len(tokens)} tokens")
+        logger.info(f"[WS CONNECTED] Sample tokens: {list(tokens)[:5]}")  # Log sample tokens
         
         if not tokens:
-            logger.info("No option tokens to subscribe - WebSocket will idle")
-            logger.info("[CRITICAL] No tokens to subscribe - NO DATA WILL FLOW")
+            logger.error("[CRITICAL] No option tokens to subscribe - WebSocket will idle")
+            logger.error("[CRITICAL] FIX: Check token_manager initialization and instrument segment")
             return
         
         # CRITICAL DEBUG: Verify token_symbol_map is populated
         logger.info(f"[DEBUG] Token symbol map size: {len(self.token_symbol_map)}")
         if len(self.token_symbol_map) == 0:
-            logger.info(f"[CRITICAL] Token symbol map is EMPTY - NO TOKENS TO SUBSCRIBE")
-            logger.info(f"[CRITICAL] FIX: Ensure load_option_tokens() is called before connect()")
+            logger.error(f"[CRITICAL] Token symbol map is EMPTY - NO TOKENS TO SUBSCRIBE")
+            logger.error(f"[CRITICAL] FIX: Ensure load_option_tokens() is called before connect()")
             return
         else:
             logger.info(f"[DEBUG] Token symbol map populated with {len(self.token_symbol_map)} tokens")
